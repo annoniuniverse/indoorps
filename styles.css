@@ -1,24 +1,20 @@
-/* VARIABLES DE COLOR - Estética Tech/Moderna */
 :root {
-    --primary: #0081C9;       /* Azul Principal */
-    --accent: #00d2ff;        /* Celeste Neón para detalles */
-    --dark-box: #1e293b;      /* Fondo de los iconos */
-    --dark-bg: #0f172a;       /* Azul muy oscuro para textos */
+    --primary: #0081C9;
+    --accent: #00d2ff;
+    --dark-box: #1e293b;
+    --dark-bg: #0f172a;
     --white: #ffffff;
     --light-blue: #f0f9ff;
 }
 
-/* RESET Y BASE */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 0;
     color: #334155;
     background-color: var(--white);
-    line-height: 1.6;
+    scroll-behavior: smooth; /* Esto hace que el salto sea suave */
 }
 
-/* NAVEGACIÓN */
 nav {
     display: flex;
     justify-content: space-between;
@@ -35,27 +31,12 @@ nav {
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--primary);
-    letter-spacing: -1px;
 }
 
-nav ul { 
-    display: flex; 
-    list-style: none; 
-    gap: 30px; 
-}
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { text-decoration: none; color: var(--dark-bg); font-weight: 600; transition: 0.3s; }
+nav a:hover { color: var(--primary); }
 
-nav a { 
-    text-decoration: none; 
-    color: var(--dark-bg); 
-    font-weight: 600; 
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: var(--primary);
-}
-
-/* HERO SECTION (CABECERA) */
 .hero {
     padding: 120px 10% 80px;
     background: linear-gradient(180deg, #bae6fd 0%, #ffffff 100%);
@@ -65,27 +46,16 @@ nav a:hover {
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    color: var(--dark-bg);
-    line-height: 1.1;
-    max-width: 900px;
-    margin: 0 auto 25px;
+    margin-bottom: 25px;
     letter-spacing: -2px;
 }
 
 .subtitle {
-    font-size: 1.5rem; /* Un pelín más grande para que tenga peso */
+    font-size: 1.5rem;
     color: #1e40af;
-    max-width: 800px;
-    margin: 0 auto 40px; /* Más espacio antes del botón */
+    max-width: 850px;
+    margin: 0 auto 40px;
     font-weight: 500;
-}
-
-.support-text {
-    font-size: 1rem;
-    color: #64748b;
-    margin-bottom: 40px;
-    font-weight: 500;
-    font-style: italic;
 }
 
 .btn-primary {
@@ -94,19 +64,17 @@ nav a:hover {
     padding: 18px 45px;
     border: none;
     border-radius: 50px;
-    font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,129,201,0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,129,201,0.3);
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(0,129,201,0.3);
+    box-shadow: 0 10px 20px rgba(0,129,201,0.4);
 }
 
-/* SECCIÓN DE BENEFICIOS (TARJETAS) */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -116,71 +84,49 @@ nav a:hover {
 
 .feature-card {
     background: var(--white);
-    padding: 50px 30px;
-    border-radius: 30px;
+    padding: 40px;
+    border-radius: 25px;
     text-align: center;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    transition: all 0.4s ease;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
+.feature-card:hover { transform: translateY(-10px); }
 
-/* DISEÑO DE ICONOS OSCUROS CON BRILLO */
 .dark-icon-box {
     width: 100px;
     height: 100px;
     background: var(--dark-box);
     margin: 0 auto 25px;
-    border-radius: 24px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
-    transition: 0.3s;
 }
 
-.feature-card:hover .dark-icon-box {
-    background: var(--primary);
-    border-color: var(--white);
-    box-shadow: 0 0 30px rgba(0, 129, 201, 0.4);
-}
+.icon-style { width: 45px; height: 45px; color: var(--accent); }
 
-.icon-style {
-    width: 45px;
-    height: 45px;
-    color: var(--accent);
-    stroke-width: 1.5;
-    transition: 0.3s;
-}
-
-.feature-card:hover .icon-style {
-    color: var(--white);
-}
-
-.feature-card h3 {
-    color: var(--dark-bg);
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.feature-card p {
-    color: #64748b;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* FOOTER */
-footer {
-    padding: 60px;
+/* SECCION CONTACTO */
+.contact-section {
+    padding: 100px 10%;
     text-align: center;
-    background: #f8fafc;
-    color: #64748b;
-    font-weight: 500;
+    background: var(--light-blue);
 }
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+footer { padding: 40px; text-align: center; color: #64748b; }
