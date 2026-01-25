@@ -1,8 +1,28 @@
-/* EL NUEVO HERO CON IMAGEN DE FONDO */
+/* 1. VARIABLES Y RESET - ¡ESTO ES LO QUE TE FALTA! */
+:root {
+    --primary: #0081C9;
+    --accent: #00d2ff;
+    --dark-bg: #0f172a;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* 2. EL NUEVO HERO (Tu código con las mejoras de legibilidad) */
 .hero {
     position: relative;
-    min-height: 80vh;
-    background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1920'); /* Imagen de supermercado real */
+    min-height: 100vh; /* Aumentado para que ocupe toda la pantalla inicial */
+    background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1920');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -16,7 +36,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 30%, rgba(15, 23, 42, 0.4) 100%);
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.4) 100%);
     z-index: 1;
 }
 
@@ -28,7 +48,7 @@
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 5%;
+    padding: 0 5%;
     width: 100%;
 }
 
@@ -43,40 +63,65 @@
     color: white;
     margin-bottom: 20px;
     line-height: 1.1;
+    font-weight: 800;
 }
 
 .subtitle {
-    font-size: 1.3rem;
-    color: #bae6fd; /* Azul clarito para que resalte */
+    font-size: 1.4rem;
+    color: #bae6fd;
     margin-bottom: 15px;
     max-width: 600px;
+    line-height: 1.4;
 }
 
 .support-text {
     font-size: 1rem;
     color: #94a3b8;
-    font-style: italic;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
-/* EL CELULAR FLOTANTE */
+/* 3. BOTONES */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,129,201,0.3);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 18px 30px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    font-weight: 600;
+    margin-left: 15px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+/* 4. EL CELULAR FLOTANTE */
 .hero-image-box {
     flex: 0.8;
     display: flex;
     justify-content: center;
-    perspective: 1000px; /* Efecto 3D */
+    perspective: 1500px;
 }
 
 .phone-wrapper {
     width: 280px;
     height: 560px;
     background: #000;
-    border: 8px solid #1e293b;
-    border-radius: 40px;
+    border: 10px solid #1e293b;
+    border-radius: 45px;
     overflow: hidden;
-    box-shadow: -20px 40px 60px rgba(0,0,0,0.5);
-    transform: rotateY(-15deg) rotateX(5deg);
-    transition: 0.5s ease;
+    box-shadow: -30px 50px 80px rgba(0,0,0,0.6);
+    transform: rotateY(-20deg) rotateX(5deg);
+    transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .phone-wrapper:hover {
@@ -86,34 +131,5 @@
 .phone-display {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Aquí se verá tu mapa después */
-}
-
-/* BOTÓN SECUNDARIO PARA EL HERO */
-.btn-secondary {
-    background: transparent;
-    color: white;
-    padding: 18px 30px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 50px;
-    font-weight: 600;
-    margin-left: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 150px;
-    }
-    .hero-text { text-align: center; }
-    .hero h1 { font-size: 2.5rem; }
-    .phone-wrapper { display: none; } /* En celular chico ocultamos el mockup para que no estorbe */
+    object-fit: cover;
 }
