@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">AisleMap</div>
+            <a href="#" class="logo">AisleMap</a>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
@@ -20,12 +20,12 @@
         </nav>
     </header>
 
-    <section id="inicio" class="hero-clean">
-        <div class="hero-container">
+    <section id="inicio" class="hero">
+        <div class="hero-bg-blur"></div> <div class="hero-container">
             <div class="hero-text">
-                <span class="badge">Disponible para Salones Modernos</span>
-                <h1>Optimiza tu supermercado</h1>
-                <p class="subtitle">Navegación inteligente sin hardware. Transforma tu salón en un mapa interactivo y guía a tus clientes.</p>
+                <span class="badge">Novedad: Sistema sin sensores</span>
+                <h1>Navegación inteligente para grandes superficies</h1>
+                <p class="subtitle">Sin hardware: transforma tu salón en un mapa interactivo y guía a tus clientes hacia mejores compras.</p>
                 <div class="hero-buttons">
                     <button class="btn-primary">Ver Demo</button>
                     <button class="btn-secondary">Saber más</button>
@@ -36,49 +36,14 @@
                 <div class="phone-frame">
                     <div class="phone-content">
                         <div class="map-placeholder">
-                            <i data-lucide="map" style="width: 40px; height: 40px; color: #cbd5e1;"></i>
+                            <i data-lucide="map-pin" class="pin-icon"></i>
                             <p>Tu Mapa Aquí</p>
                         </div>
                     </div>
                 </div>
-                <div class="floating-shape s1"></div>
-                <div class="floating-shape s2"></div>
             </div>
         </div>
     </section>
-
-    <section id="beneficios" class="features">
-        <div class="feature-card">
-            <div class="dark-icon-box"><i data-lucide="shopping-cart" class="icon-style"></i></div>
-            <h3>Rutas Eficientes</h3>
-            <p>Calculamos el camino óptimo para que tus clientes no pierdan tiempo buscando.</p>
-        </div>
-        <div class="feature-card">
-            <div class="dark-icon-box"><i data-lucide="trending-up" class="icon-style"></i></div>
-            <h3>Más Rentabilidad</h3>
-            <p>Aumenta el ticket promedio guiando a los usuarios por zonas estratégicas.</p>
-        </div>
-        <div class="feature-card">
-            <div class="dark-icon-box"><i data-lucide="zap" class="icon-style"></i></div>
-            <h3>Sin Sensores</h3>
-            <p>Todo funciona desde el navegador del cliente. Sin instalaciones costosas.</p>
-        </div>
-    </section>
-
-    <section id="contacto" class="contact-section">
-        <h2>¿Listo para empezar?</h2>
-        <p>Contactanos para una demo personalizada en tu establecimiento.</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Tu Nombre" required>
-            <input type="email" placeholder="Email corporativo" required>
-            <textarea placeholder="¿En qué podemos ayudarte?" rows="4"></textarea>
-            <button type="submit" class="btn-primary">Enviar Consulta</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 AisleMap - Innovación en Retail</p>
-    </footer>
 
     <script>
       lucide.createIcons();
