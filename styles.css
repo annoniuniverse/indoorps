@@ -73,10 +73,10 @@ nav a:hover {
 }
 
 .subtitle {
-    font-size: 1.4rem;
+    font-size: 1.5rem; /* Un pelín más grande para que tenga peso */
     color: #1e40af;
     max-width: 800px;
-    margin: 0 auto 20px;
+    margin: 0 auto 40px; /* Más espacio antes del botón */
     font-weight: 500;
 }
 
