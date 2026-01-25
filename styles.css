@@ -1,7 +1,6 @@
 :root {
     --primary: #0081C9;
     --dark: #0f172a;
-    --light-bg: #f0f9ff;
     --white: #ffffff;
 }
 
@@ -10,7 +9,6 @@ body {
     margin: 0;
     color: var(--dark);
     background-color: var(--white);
-    line-height: 1.6;
 }
 
 nav {
@@ -32,8 +30,8 @@ nav ul { display: flex; list-style: none; gap: 30px; }
 nav a { text-decoration: none; color: var(--dark); font-weight: 600; }
 
 .hero {
-    padding: 100px 10%;
-    background: linear-gradient(180deg, #7dd3fc 0%, #ffffff 100%);
+    padding: 120px 10%;
+    background: linear-gradient(180deg, #7dd3fc 0%, #e0f2fe 100%);
     text-align: center;
 }
 
@@ -41,11 +39,10 @@ nav a { text-decoration: none; color: var(--dark); font-weight: 600; }
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 10px;
-    color: var(--dark);
 }
 
 .subtitle {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #1e40af;
     margin-bottom: 40px;
 }
@@ -53,18 +50,12 @@ nav a { text-decoration: none; color: var(--dark); font-weight: 600; }
 .btn-primary {
     background: var(--primary);
     color: white;
-    padding: 16px 35px;
+    padding: 18px 40px;
     border: none;
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,129,201,0.3);
-    transition: transform 0.2s;
-}
-
-.btn-primary:hover {
-    transform: scale(1.05);
 }
 
 .features {
@@ -77,48 +68,18 @@ nav a { text-decoration: none; color: var(--dark); font-weight: 600; }
 .feature-card {
     background: var(--white);
     padding: 40px;
-    border-radius: 25px;
+    border-radius: 20px;
     text-align: center;
     border: 1px solid #e2e8f0;
-    transition: all 0.3s;
 }
 
-.feature-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.icon-box-special {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 25px;
-    background: #ffffff;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #e0f2fe;
-}
-
-.feature-card h3 {
-    color: var(--primary);
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.how-it-works {
-    padding: 80px 15%;
-    background: #f8fafc;
-    text-align: center;
-}
-
-.how-it-works h2 {
-    color: var(--primary);
-    margin-bottom: 30px;
+.icon-box {
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
 footer {
     padding: 40px;
     text-align: center;
-    font-size: 0.9rem;
     color: #64748b;
 }
