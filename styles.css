@@ -1,18 +1,24 @@
+/* VARIABLES DE COLOR - Estética Tech/Moderna */
 :root {
-    --primary: #0081C9;
-    --accent: #00d2ff;
-    --dark-box: #1e293b;
-    --dark-bg: #0f172a;
+    --primary: #0081C9;       /* Azul Principal */
+    --accent: #00d2ff;        /* Celeste Neón para detalles */
+    --dark-box: #1e293b;      /* Fondo de los iconos */
+    --dark-bg: #0f172a;       /* Azul muy oscuro para textos */
     --white: #ffffff;
+    --light-blue: #f0f9ff;
 }
 
+/* RESET Y BASE */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
+    padding: 0;
     color: #334155;
     background-color: var(--white);
+    line-height: 1.6;
 }
 
+/* NAVEGACIÓN */
 nav {
     display: flex;
     justify-content: space-between;
@@ -20,19 +26,38 @@ nav {
     padding: 1.2rem 8%;
     background: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--primary);
+    letter-spacing: -1px;
 }
 
-nav ul { display: flex; list-style: none; gap: 30px; }
-nav a { text-decoration: none; color: var(--dark-bg); font-weight: 600; }
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+}
 
+nav a { 
+    text-decoration: none; 
+    color: var(--dark-bg); 
+    font-weight: 600; 
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* HERO SECTION (CABECERA) */
 .hero {
-    padding: 100px 10%;
+    padding: 120px 10% 80px;
     background: linear-gradient(180deg, #bae6fd 0%, #ffffff 100%);
     text-align: center;
 }
@@ -40,26 +65,48 @@ nav a { text-decoration: none; color: var(--dark-bg); font-weight: 600; }
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    color: var(--dark-bg);
+    line-height: 1.1;
+    max-width: 900px;
+    margin: 0 auto 25px;
+    letter-spacing: -2px;
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #1e40af;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-weight: 500;
+}
+
+.support-text {
+    font-size: 1rem;
+    color: #64748b;
     margin-bottom: 40px;
+    font-weight: 500;
+    font-style: italic;
 }
 
 .btn-primary {
     background: var(--primary);
     color: white;
-    padding: 18px 40px;
+    padding: 18px 45px;
     border: none;
     border-radius: 50px;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,129,201,0.3);
+    box-shadow: 0 10px 20px rgba(0,129,201,0.2);
+    transition: all 0.3s ease;
 }
 
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0,129,201,0.3);
+}
+
+/* SECCIÓN DE BENEFICIOS (TARJETAS) */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -69,47 +116,71 @@ nav a { text-decoration: none; color: var(--dark-bg); font-weight: 600; }
 
 .feature-card {
     background: var(--white);
-    padding: 40px;
-    border-radius: 25px;
+    padding: 50px 30px;
+    border-radius: 30px;
     text-align: center;
-    border: 1px solid #e2e8f0;
-    transition: transform 0.3s ease;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-/* EL DISEÑO DE LOS LOGOS OSCUROS */
+/* DISEÑO DE ICONOS OSCUROS CON BRILLO */
 .dark-icon-box {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     background: var(--dark-box);
     margin: 0 auto 25px;
-    border-radius: 20px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+    transition: 0.3s;
+}
+
+.feature-card:hover .dark-icon-box {
+    background: var(--primary);
+    border-color: var(--white);
+    box-shadow: 0 0 30px rgba(0, 129, 201, 0.4);
 }
 
 .icon-style {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     color: var(--accent);
     stroke-width: 1.5;
+    transition: 0.3s;
+}
+
+.feature-card:hover .icon-style {
+    color: var(--white);
 }
 
 .feature-card h3 {
     color: var(--dark-bg);
     font-size: 1.5rem;
     font-weight: 800;
+    margin-bottom: 15px;
 }
 
-footer {
-    padding: 40px;
-    text-align: center;
+.feature-card p {
     color: #64748b;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+    padding: 60px;
+    text-align: center;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 500;
 }
