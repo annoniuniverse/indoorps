@@ -1,126 +1,115 @@
 :root {
     --primary: #0081C9;
-    --dark: #0f172a;
-    --light-blue: #e0f2fe;
+    --accent: #00d2ff;
+    --dark-box: #1e293b;
+    --dark-bg: #0f172a;
     --white: #ffffff;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    color: var(--dark);
+    color: #334155;
     background-color: var(--white);
-    overflow-x: hidden;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 8%;
+    padding: 1.2rem 8%;
     background: var(--white);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--primary);
-    letter-spacing: -1px;
 }
 
 nav ul { display: flex; list-style: none; gap: 30px; }
-nav a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
-nav a:hover { color: var(--primary); }
+nav a { text-decoration: none; color: var(--dark-bg); font-weight: 600; }
 
 .hero {
-    padding: 140px 10%;
+    padding: 100px 10%;
     background: linear-gradient(180deg, #bae6fd 0%, #ffffff 100%);
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 15px;
-    letter-spacing: -2px;
+    margin-bottom: 10px;
 }
 
 .subtitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #1e40af;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .btn-primary {
     background: var(--primary);
     color: white;
-    padding: 20px 45px;
+    padding: 18px 40px;
     border: none;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    font-weight: 700;
+    border-radius: 50px;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,129,201,0.2);
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(0,129,201,0.3);
+    box-shadow: 0 4px 15px rgba(0,129,201,0.3);
 }
 
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
-    padding: 100px 10%;
+    padding: 80px 10%;
 }
 
 .feature-card {
     background: var(--white);
-    padding: 50px 30px;
-    border-radius: 30px;
+    padding: 40px;
+    border-radius: 25px;
     text-align: center;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    transition: 0.4s ease;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-/* EL DISEÑO DE LOS LOGOS */
-.icon-box-new {
-    width: 80px;
-    height: 80px;
-    background: var(--light-blue);
-    color: var(--primary);
-    font-size: 2.5rem;
+/* EL DISEÑO DE LOS LOGOS OSCUROS */
+.dark-icon-box {
+    width: 120px;
+    height: 120px;
+    background: var(--dark-box);
+    margin: 0 auto 25px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 25px;
-    border-radius: 20px;
-    transition: 0.3s;
+    position: relative;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
 }
 
-.feature-card:hover .icon-box-new {
-    background: var(--primary);
-    color: white;
-    transform: rotate(-5deg);
+.icon-style {
+    width: 50px;
+    height: 50px;
+    color: var(--accent);
+    stroke-width: 1.5;
 }
 
 .feature-card h3 {
+    color: var(--dark-bg);
     font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-weight: 800;
 }
 
 footer {
-    padding: 60px;
+    padding: 40px;
     text-align: center;
-    background: #f8fafc;
     color: #64748b;
 }
