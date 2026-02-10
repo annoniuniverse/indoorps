@@ -3,88 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AisleMap | Navegación Inteligente</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Indoorps | Indoor Positioning System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">AisleMap</a>
+            <a href="#" class="logo">INDOORPS</a>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#soluciones">Soluciones</a></li>
+                <li><a href="#sectores">Sectores</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <div class="hero-bg-blur"></div>
+        <div class="hero-map-overlay">
+            <img src="img/bg-map.png" class="floating-map map-1" alt="Indoor Map 3D">
+            <img src="img/hero-map.png" class="floating-map map-2" alt="Navigation Route">
+        </div>
+        
         <div class="hero-container">
             <div class="hero-text">
-                <span class="badge">Novedad: Sistema sin sensores</span>
-                <h1>Navegación inteligente para grandes superficies</h1>
-                <p class="subtitle">Sin hardware: transforma tu salón en un mapa interactivo y guía a tus clientes hacia mejores compras.</p>
+                <span class="badge">Evolución Digital: Navegación sin límites</span>
+                <h1>Navegación avanzada donde el GPS no llega.</h1>
+                <p class="subtitle">Optimizamos recorridos en lugares cerrados mediante tecnología de vanguardia. Sin hardware, sin sensores, sin tocar tu infraestructura.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Ver Demo</button>
-                    <button class="btn-secondary">Saber más</button>
+                    <button class="btn-primary" onclick="location.href='#contacto'">Solicitar Demo</button>
+                    <button class="btn-secondary">Nuestros Planes</button>
                 </div>
             </div>
 
-            <div class="hero-mockup">
-                <div class="phone-frame">
-                    <div class="phone-content">
-                        <div class="map-placeholder">
-                            <i data-lucide="map-pin" class="pin-icon"></i>
-                            <p>App Preview</p>
-                        </div>
-                    </div>
+            <div class="hero-image-container">
+                <div class="map-wrapper">
+                    <img src="img/hero-map.png" alt="Indoor Navigation System" class="main-map-3d">
+                    <div class="glow-effect"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="beneficios" class="features">
-        <div class="feature-card">
-            <div class="icon-box"><i data-lucide="shopping-cart"></i></div>
-            <h3>Recorridos Eficientes</h3>
-            <p>Optimizamos el trayecto del cliente basándonos en su lista de productos.</p>
+    <section id="soluciones" class="features-grid">
+        <div class="feature-card-modern">
+            <div class="icon-wrapper"><i data-lucide="map-pinned"></i></div>
+            <div class="card-content">
+                <h3>Recorridos Optimizados</h3>
+                <p>Guía a tus visitantes por la ruta más eficiente, ahorrando tiempo y mejorando la experiencia de flujo.</p>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="icon-box"><i data-lucide="users"></i></div>
-            <h3>Satisface clientes</h3>
-            <p>Reduce la frustración de no encontrar productos en góndolas complejas.</p>
+        <div class="feature-card-modern">
+            <div class="icon-wrapper"><i data-lucide="cpu"></i></div>
+            <div class="card-content">
+                <h3>Cero Infraestructura</h3>
+                <p>El sistema no necesita hardware adicional ni cambios en tu edificio. Implementación inmediata y digital.</p>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="icon-box"><i data-lucide="layers"></i></div>
-            <h3>Fácil integración</h3>
-            <p>Acceso directo desde el navegador, sin descargas ni instalaciones.</p>
+        <div class="feature-card-modern">
+            <div class="icon-wrapper"><i data-lucide="megaphone"></i></div>
+            <div class="card-content">
+                <h3>Impulso Publicitario</h3>
+                <p>Integración publicitaria estratégica según la ubicación del usuario para potenciar tus ventas.</p>
+            </div>
+        </div>
+        <div class="feature-card-modern">
+            <div class="icon-wrapper"><i data-lucide="wallet"></i></div>
+            <div class="card-content">
+                <h3>Tarifas a Medida</h3>
+                <p>Planes flexibles que se adaptan a la escala de cada usuario y necesidad específica del comercio.</p>
+            </div>
         </div>
     </section>
 
-    <section id="contacto" class="contact">
+    <section id="sectores" style="padding: 100px 8%; background: #f8fafc; text-align: center;">
+        <h2 style="font-family: 'Righteous', cursive; font-size: 2.5rem; margin-bottom: 40px;">Sectores que transformamos</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+            <span class="badge-sector">Aeropuertos</span>
+            <span class="badge-sector">Centros Comerciales</span>
+            <span class="badge-sector">Hospitales</span>
+            <span class="badge-sector">Museos</span>
+            <span class="badge-sector">Universidades</span>
+            <span class="badge-sector">Supermercados</span>
+            <span class="badge-sector">Estacionamientos</span>
+        </div>
+    </section>
+
+    <section id="contacto" style="padding: 100px 8%;">
         <div class="contact-box">
-            <h2>¿Listo para empezar?</h2>
-            <p>Contactanos para una demo personalizada.</p>
-            <form class="contact-form">
-                <div class="input-group">
-                    <input type="text" placeholder="Tu Nombre" required>
-                    <input type="email" placeholder="Email" required>
-                </div>
-                <textarea placeholder="Tu mensaje" rows="4"></textarea>
-                <button type="submit" class="btn-primary">Enviar Consulta</button>
+            <h2 style="font-family: 'Righteous', cursive;">¿Listo para innovar?</h2>
+            <p>Déjanos tu mensaje y diseñemos juntos la mejor experiencia de navegación para tu espacio.</p>
+            <form style="display: grid; gap: 20px; max-width: 500px; margin: 0 auto;">
+                <input type="text" placeholder="Tu Nombre" required>
+                <input type="email" placeholder="Email Corporativo" required>
+                <textarea placeholder="Cuéntanos sobre tu proyecto..." rows="4" required></textarea>
+                <button type="submit" class="btn-primary" style="width: 100%;">Enviar Mensaje</button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 AisleMap - Innovación en Retail</p>
-    </footer>
-
     <script>
-      lucide.createIcons();
+        lucide.createIcons();
     </script>
 </body>
 </html>
