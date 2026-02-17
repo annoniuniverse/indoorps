@@ -1,7 +1,7 @@
 /* VARIABLES GLOBALES */
 :root {
     --primary: #0081c9;
-    --dark: #0f172a; /* Un azul más profundo y elegante */
+    --dark: #0f172a;
     --gray: #64748b;
     --light: #f8fafc;
     --glass: rgba(255, 255, 255, 0.8);
@@ -65,10 +65,10 @@ nav ul li a:hover {
     color: var(--primary);
 }
 
-/* HERO SECTION CON MAPAS DE FONDO */
+/* HERO SECTION - REDISEÑADO PARA FONDO ESTÁTICO */
 .hero {
     position: relative;
-    padding: 180px 8% 100px;
+    padding: 120px 8% 100px;
     background: radial-gradient(circle at top right, #f0f9ff, #ffffff);
     display: flex;
     align-items: center;
@@ -76,60 +76,26 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
-/* Capa de mapas decorativos detrás del texto */
-.hero-map-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.floating-map {
-    position: absolute;
-    opacity: 0.12; /* Muy sutil para que no distraiga */
-    filter: grayscale(30%) blur(1px);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* Estilo para mapa 1 (Bariloche) */
-.map-1 {
-    width: 500px;
-    top: 10%;
-    right: -5%;
-    transform: rotate(-15deg) skewY(5deg);
-}
-
-/* Estilo para mapa 2 (Ruta con puntos) */
-.map-2 {
-    width: 450px;
-    bottom: 10%;
-    left: -5%;
-    transform: rotate(10deg) skewY(-3deg);
-}
-
 .hero-container {
     position: relative;
     display: flex;
     align-items: center;
     gap: 60px;
-    z-index: 2;
+    z-index: 10; /* Elevamos el texto para que esté siempre arriba */
     width: 100%;
 }
 
 .hero-text {
-    flex: 1;
+    flex: 1.2; /* Un poco más de espacio al texto */
 }
 
 .hero-text h1 {
     font-family: 'Righteous', cursive;
-    font-size: 4rem;
+    font-size: 4.5rem; /* Un poco más grande para impactar */
     line-height: 1.05;
     margin-bottom: 25px;
     color: var(--dark);
+    text-shadow: 0 0 40px rgba(255,255,255,0.8); /* Sutil sombra blanca para leer mejor sobre el mapa */
 }
 
 .badge {
@@ -152,6 +118,7 @@ nav ul li a:hover {
     max-width: 550px;
 }
 
+/* BOTONES */
 .hero-buttons {
     display: flex;
     gap: 15px;
@@ -186,105 +153,49 @@ nav ul li a:hover {
     transition: 0.3s;
 }
 
-.btn-secondary:hover {
-    background: #f8fafc;
-    border-color: #cbd5e1;
-}
-
-/* --- NUEVOS ESTILOS PARA EL MAPA DIRECTO --- */
+/* CONTENEDOR DE LA IMAGEN COMO FONDO DERECHO */
 .hero-image-container {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1200px;
+    justify-content: flex-end; /* La tiramos a la derecha */
+    position: relative;
 }
 
 .map-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 550px;
+    position: absolute;
+    width: 140%; /* Super grande */
+    right: -20%; /* Que se salga un poco de la pantalla */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1; /* DETRÁS DEL TEXTO */
 }
 
 .main-map-3d {
     width: 100%;
     height: auto;
-    border-radius: 24px;
-    /* Efecto de inclinación 3D real */
-    transform: rotateX(12deg) rotateY(-18deg) rotateZ(4deg);
-    box-shadow: 
-        -30px 40px 70px rgba(0,0,0,0.15),
-        0 10px 20px rgba(0, 129, 201, 0.1);
-    border: 1px solid rgba(255,255,255,0.6);
-    animation: floatMap 6s ease-in-out infinite;
+    border-radius: 40px;
+    /* Inclinación estática (sin animación) */
+    transform: rotateX(10deg) rotateY(-15deg); 
+    box-shadow: -50px 50px 100px rgba(0,0,0,0.1);
+    opacity: 0.85; /* Sutil transparencia para integrar con el fondo */
+    filter: drop-shadow(0 0 20px rgba(0, 129, 201, 0.05));
+    border: 1px solid rgba(255,255,255,0.4);
 }
 
-.glow-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    height: 70%;
-    background: var(--primary);
-    filter: blur(90px);
-    opacity: 0.2;
-    z-index: -1;
+/* Quitamos las capas decorativas viejas para limpiar el diseño */
+.hero-map-overlay {
+    display: none; 
 }
 
-@keyframes floatMap {
-    0% { transform: rotateX(12deg) rotateY(-18deg) rotateZ(4deg) translateY(0px); }
-    50% { transform: rotateX(14deg) rotateY(-14deg) rotateZ(5deg) translateY(-20px); }
-    100% { transform: rotateX(12deg) rotateY(-18deg) rotateZ(4deg) translateY(0px); }
-}
-/* ------------------------------------------- */
-
-/* MOCKUP CELULAR PREMIUM (Mantenido por compatibilidad) */
-.hero-mockup {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.phone-frame {
-    width: 310px;
-    height: 630px;
-    background: #111;
-    border-radius: 45px;
-    padding: 12px;
-    box-shadow: 0 50px 100px rgba(0,0,0,0.15), inset 0 0 2px 2px rgba(255,255,255,0.1);
-    position: relative;
-}
-
-/* Simulación de parlante/cámara */
-.phone-frame::after {
-    content: '';
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 5px;
-    background: #222;
-    border-radius: 10px;
-}
-
-.phone-content {
-    background: #f1f5f9;
-    width: 100%;
-    height: 100%;
-    border-radius: 35px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* GRILLA DE SOLUCIONES (2x2) */
+/* --- RESTO DE SECCIONES (IGUALES) --- */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     padding: 120px 8%;
     background: #fff;
+    position: relative;
+    z-index: 20; /* Aseguramos que tape el mapa al scrollear */
 }
 
 .feature-card-modern {
@@ -335,7 +246,6 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
-/* SECTORES */
 .badge-sector {
     background: #f8fafc;
     padding: 14px 28px;
@@ -347,13 +257,6 @@ nav ul li a:hover {
     cursor: default;
 }
 
-.badge-sector:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: #f0f9ff;
-}
-
-/* CONTACTO */
 .contact-box {
     background: var(--dark);
     color: white;
@@ -364,34 +267,18 @@ nav ul li a:hover {
     margin: 0 auto;
 }
 
-.contact-box h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.contact-box p {
-    color: #94a3b8;
-    margin-bottom: 40px;
-}
-
 input, textarea {
     padding: 18px;
     border-radius: 12px;
     border: 1px solid #334155;
     background: #1e293b;
     color: white;
-    font-family: 'Inter', sans-serif;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #64748b;
-}
-
-/* AJUSTES RESPONSIVE */
 @media (max-width: 1100px) {
     .hero-container { flex-direction: column; text-align: center; }
     .hero-text h1 { font-size: 3rem; }
     .hero-buttons { justify-content: center; }
-    .subtitle { margin: 0 auto 40px; }
+    .map-wrapper { width: 100%; position: relative; right: 0; margin-top: 50px; }
     .features-grid { grid-template-columns: 1fr; }
 }
