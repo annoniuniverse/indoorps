@@ -310,20 +310,20 @@
       </div>
 
       <div class="mx-auto mt-12 max-w-lg">
-        <form class="flex flex-col gap-5 rounded-2xl border border-slate-200/60 bg-[#fcfcfd] p-8 shadow-sm" onsubmit="event.preventDefault()">
+        <form id="contact-form" action="https://formspree.io/f/mzdaapkl" method="POST" class="flex flex-col gap-5 rounded-2xl border border-slate-200/60 bg-[#fcfcfd] p-8 shadow-sm">
           <div class="flex flex-col gap-1.5">
             <label for="name" class="text-sm font-medium text-[#1b1f3b]">Nombre</label>
-            <input id="name" type="text" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+            <input id="name" name="nombre" type="text" required class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
           </div>
           <div class="flex flex-col gap-1.5">
             <label for="email" class="text-sm font-medium text-[#1b1f3b]">Email</label>
-            <input id="email" type="email" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+            <input id="email" name="email" type="email" required class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
           </div>
           <div class="flex flex-col gap-1.5">
             <label for="message" class="text-sm font-medium text-[#1b1f3b]">Mensaje</label>
-            <textarea id="message" rows="4" class="resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
+            <textarea id="message" name="mensaje" rows="4" required class="resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
           </div>
-          <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700">
+          <button id="submit-button" type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 active:scale-[0.98]">
             Enviar Solicitud
           </button>
         </form>
@@ -371,6 +371,44 @@
       menu.classList.add('hidden');
       iconMenu.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
     }
+
+    // LÓGICA PARA EL ENVÍO DE FORMULARIO SIN SALIR DE LA PÁGINA
+    const form = document.getElementById("contact-form");
+    const btn = document.getElementById("submit-button");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "Enviando...";
+      btn.disabled = true;
+
+      const data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          btn.innerHTML = "¡Mensaje Enviado!";
+          btn.classList.replace('bg-blue-600', 'bg-green-600');
+          form.reset();
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.replace('bg-green-600', 'bg-blue-600');
+            btn.disabled = false;
+          }, 4000);
+        } else {
+          btn.innerHTML = "Error al enviar";
+          btn.disabled = false;
+        }
+      }).catch(error => {
+        btn.innerHTML = "Error de conexión";
+        btn.disabled = false;
+      });
+    }
+    form.addEventListener("submit", handleSubmit);
   </script>
 </body>
 </html>
