@@ -1,110 +1,376 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indoorps | Indoor Positioning System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3b82f6" />
+  <title>IndoorPS - Donde el GPS no llega</title>
+  <meta name="description" content="Tecnología de navegación y posicionamiento en interiores de precisión para edificios inteligentes, centros comerciales y aeropuertos." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Righteous', 'cursive'],
+          },
+          colors: {
+            neon: {
+              blue: '#4d8cff',
+              cyan: '#22d3ee',
+              purple: '#a855f7',
+            },
+            footer: {
+              DEFAULT: '#1a1d2e',
+              foreground: '#c8cad6',
+            },
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            'dash-flow': {
+              to: { strokeDashoffset: '-40' },
+            },
+            'pulse-node': {
+              '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+              '50%': { opacity: '1', transform: 'scale(1.2)' },
+            },
+            'fade-in-up': {
+              from: { opacity: '0', transform: 'translateY(20px)' },
+              to: { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            float: 'float 5s ease-in-out infinite',
+            dash: 'dash-flow 2s linear infinite',
+            'pulse-node': 'pulse-node 2.5s ease-in-out infinite',
+            'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .blueprint-grid {
+      background-image:
+        linear-gradient(rgba(100, 140, 200, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 140, 200, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(100, 140, 200, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 140, 200, 0.03) 1px, transparent 1px);
+      background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    }
+    .animation-delay-200 { animation-delay: 200ms; }
+    .animation-delay-400 { animation-delay: 400ms; }
+    .animation-delay-600 { animation-delay: 600ms; }
+    html { scroll-behavior: smooth; }
+    .animate-fade-in-up { opacity: 0; }
+    body { font-size: 16px; }
+    .nodes-container circle {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="#" class="logo">INDOORPS</a>
-            <ul>
-                <li><a href="#soluciones">Soluciones</a></li>
-                <li><a href="#sectores">Sectores</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-map-overlay">
-            <img src="img/bg-map.png" class="floating-map map-1" alt="Indoor Map 3D">
-            <img src="img/hero-map.png" class="floating-map map-2" alt="Navigation Route">
+<body class="min-h-screen bg-[#fcfcfd] text-[#1b1f3b] font-sans antialiased">
+
+  <nav id="navbar" class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="#" class="flex items-center gap-2.5" aria-label="IndoorPS inicio">
+        <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
         </div>
-        
-        <div class="hero-container">
-            <div class="hero-text">
-                <span class="badge">Evolución Digital: Navegación sin límites</span>
-                <h1>Navegación avanzada donde el GPS no llega.</h1>
-                <p class="subtitle">Optimizamos recorridos en lugares cerrados mediante tecnología de vanguardia. Sin hardware, sin sensores, sin tocar tu infraestructura.</p>
-                <div class="hero-buttons">
-                    <button class="btn-primary" onclick="location.href='#contacto'">Solicitar Demo</button>
-                    <button class="btn-secondary">Nuestros Planes</button>
+        <span class="text-xl font-display tracking-wide text-[#1b1f3b]">IndoorPS</span>
+      </a>
+
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#features" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Tecnología</a>
+        <a href="#solutions" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Soluciones</a>
+        <a href="#pricing" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Precios</a>
+        <a href="#contact" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Contacto</a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 active:scale-[0.98]">
+          Solicitar Demo
+        </a>
+      </div>
+
+      <button id="mobile-toggle" class="inline-flex items-center justify-center rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-100 md:hidden" aria-label="Abrir menú">
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-slate-200/50 bg-white px-6 py-4 md:hidden">
+      <div class="flex flex-col gap-4">
+        <a href="#features" class="text-sm text-slate-500" onclick="closeMobile()">Tecnología</a>
+        <a href="#solutions" class="text-sm text-slate-500" onclick="closeMobile()">Soluciones</a>
+        <a href="#pricing" class="text-sm text-slate-500" onclick="closeMobile()">Precios</a>
+        <a href="#contact" class="text-sm text-slate-500" onclick="closeMobile()">Contacto</a>
+        <a href="#contact" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white" onclick="closeMobile()">Solicitar Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative min-h-[90vh] overflow-hidden blueprint-grid">
+    <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 800" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feFlood flood-color="#3b82f6" flood-opacity="0.6" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+          <feMerge><feMergeNode in="shadow"/><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <polyline points="650,120 750,120 750,250 900,250 900,400 1050,400 1050,550" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" opacity="0.85"/>
+      <polyline points="650,120 750,120 750,250 900,250 900,400 1050,400 1050,550" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" class="animate-dash" opacity="0.6"/>
+      
+      <g class="nodes-container">
+        <circle cx="650" cy="120" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node"/>
+        <circle cx="750" cy="250" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node" style="animation-delay:0.5s"/>
+        <circle cx="900" cy="400" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node" style="animation-delay:1s"/>
+        <circle cx="1050" cy="550" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node" style="animation-delay:1.5s"/>
+      </g>
+    </svg>
+
+    <div class="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-20 lg:flex-row lg:gap-16 lg:py-28">
+      <div class="flex flex-1 flex-col items-start gap-6 text-left">
+        <div class="inline-flex items-center gap-2 rounded-full border border-blue-600/20 bg-blue-600/5 px-4 py-1.5 animate-fade-in-up">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-600 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-600"></span>
+          </span>
+          <span class="text-xs font-medium text-blue-600 tracking-wide uppercase">Evolución Digital: Navegación sin límites.</span>
+        </div>
+
+        <h1 class="text-4xl font-display leading-tight tracking-tight text-[#1b1f3b] sm:text-5xl lg:text-6xl xl:text-7xl animate-fade-in-up animation-delay-200" style="text-wrap:balance">
+          Llegamos donde el<br/>
+          <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">GPS no llega.</span>
+        </h1>
+
+        <p class="max-w-lg text-base leading-relaxed text-slate-500 sm:text-lg animate-fade-in-up animation-delay-400" style="text-wrap:pretty">
+          Mejora la experiencia, optimiza recorridos y toma decisiones con datos reales dentro de tus espacios.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 animate-fade-in-up animation-delay-600">
+          <a href="#contact" class="inline-flex items-center gap-2.5 rounded-xl bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 active:scale-[0.98]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Start Tour
+          </a>
+          <a href="#features" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-7 py-3.5 text-sm font-semibold text-[#1b1f3b] transition-all hover:bg-slate-50 hover:border-blue-200 active:scale-[0.98]">
+            Ver Tecnología
+          </a>
+        </div>
+
+        <div class="mt-4 flex flex-wrap items-center gap-8 border-t border-slate-200/50 pt-6">
+          <div><p class="text-xs text-slate-500">Sin Hardware</p></div>
+          <div class="h-8 w-px bg-slate-200"></div>
+          <div><p class="text-xs text-slate-500">Sin Sensores</p></div>
+          <div class="h-8 w-px bg-slate-200"></div>
+          <div><p class="text-xs text-slate-500">Sin tocar tu infraestructura</p></div>
+        </div>
+      </div>
+
+      <div class="flex flex-1 items-center justify-center">
+        <div class="w-full max-w-xl">
+          <div class="relative animate-float">
+            <div class="absolute -inset-4 rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-400/10 to-cyan-400/20 blur-2xl opacity-60"></div>
+            <div class="relative rounded-2xl border border-slate-200/60 bg-white overflow-hidden shadow-2xl" style="transform: perspective(1200px) rotateY(-3deg) rotateX(2deg);">
+              <div class="flex items-center gap-2 px-4 py-3 border-b border-slate-200/50 bg-slate-50/50">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
                 </div>
+                <span class="text-xs text-slate-400 ml-2 tracking-wide font-display">IndoorPS Core 2.0</span>
+              </div>
+              <div class="relative w-full aspect-[4/3] overflow-hidden bg-slate-100">
+                <img src="img/chica-mapa.png" alt="Navegación en interiores con IndoorPS" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent pointer-events-none"></div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="hero-image-container">
-                <div class="map-wrapper">
-                    <img src="img/chica-mapa.png" alt="Indoor Navigation System" class="main-map-3d">
-                    <div class="glow-effect"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="features" class="relative bg-slate-50/40 py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto mb-16 max-w-2xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">IndoorPS Core 2.0</p>
+        <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">The next evolution of indoor positioning intelligence.</h2>
+      </div>
 
-    <section id="soluciones" class="features-grid">
-        <div class="feature-card-modern">
-            <div class="icon-wrapper"><i data-lucide="map-pinned"></i></div>
-            <div class="card-content">
-                <h3>Recorridos Optimizados</h3>
-                <p>Guía a tus visitantes por la ruta más eficiente, ahorrando tiempo y mejorando la experiencia de flujo.</p>
-            </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="group relative rounded-xl border border-slate-200/60 bg-white p-8 transition-all duration-300 hover:border-blue-300/50 hover:shadow-lg hover:-translate-y-1">
+          <div class="mb-5 inline-flex rounded-lg p-3 bg-blue-500/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">Hard Reset Logic</h3>
+          <p class="text-sm leading-relaxed text-slate-500">Mapeo optimizado mediante limpieza profunda de coordenadas para evitar saltos de señal en interiores.</p>
         </div>
-        <div class="feature-card-modern">
-            <div class="icon-wrapper"><i data-lucide="cpu"></i></div>
-            <div class="card-content">
-                <h3>Cero Infraestructura</h3>
-                <p>El sistema no necesita hardware adicional ni cambios en tu edificio. Implementación inmediata y digital.</p>
-            </div>
-        </div>
-        <div class="feature-card-modern">
-            <div class="icon-wrapper"><i data-lucide="megaphone"></i></div>
-            <div class="card-content">
-                <h3>Impulso Publicitario</h3>
-                <p>Integración publicitaria estratégica según la ubicación del usuario para potenciar tus ventas.</p>
-            </div>
-        </div>
-        <div class="feature-card-modern">
-            <div class="icon-wrapper"><i data-lucide="wallet"></i></div>
-            <div class="card-content">
-                <h3>Tarifas a Medida</h3>
-                <p>Planes flexibles que se adaptan a la escala de cada usuario y necesidad específica del comercio.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="sectores" style="padding: 100px 8%; background: #f8fafc; text-align: center;">
-        <h2 style="font-family: 'Righteous', cursive; font-size: 2.5rem; margin-bottom: 40px;">Sectores que transformamos</h2>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-            <span class="badge-sector">Aeropuertos</span>
-            <span class="badge-sector">Centros Comerciales</span>
-            <span class="badge-sector">Hospitales</span>
-            <span class="badge-sector">Museos</span>
-            <span class="badge-sector">Universidades</span>
-            <span class="badge-sector">Supermercados</span>
-            <span class="badge-sector">Estacionamientos</span>
+        <div class="group relative rounded-xl border border-slate-200/60 bg-white p-8 transition-all duration-300 hover:border-purple-300/50 hover:shadow-lg hover:-translate-y-1">
+          <div class="mb-5 inline-flex rounded-lg p-3 bg-purple-500/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">Rutas Inteligentes Indoor</h3>
+          <p class="text-sm leading-relaxed text-slate-500">Conectamos cada punto de tus espacios con precisión y en tiempo real.</p>
         </div>
-    </section>
 
-    <section id="contacto" style="padding: 100px 8%;">
-        <div class="contact-box">
-            <h2 style="font-family: 'Righteous', cursive;">¿Listo para innovar?</h2>
-            <p>Déjanos tu mensaje y diseñemos juntos la mejor experiencia de navegación para tu espacio.</p>
-            <form style="display: grid; gap: 20px; max-width: 500px; margin: 0 auto;">
-                <input type="text" placeholder="Tu Nombre" required>
-                <input type="email" placeholder="Email Corporativo" required>
-                <textarea placeholder="Cuéntanos sobre tu proyecto..." rows="4" required></textarea>
-                <button type="submit" class="btn-primary" style="width: 100%;">Enviar Mensaje</button>
-            </form>
+        <div class="group relative rounded-xl border border-slate-200/60 bg-white p-8 transition-all duration-300 hover:border-cyan-300/50 hover:shadow-lg hover:-translate-y-1">
+          <div class="mb-5 inline-flex rounded-lg p-3 bg-cyan-500/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">GPS-Like Experience</h3>
+          <p class="text-sm leading-relaxed text-slate-500">La misma simplicidad del GPS, ahora dentro de cualquier espacio cerrado.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+  <section id="pricing" class="relative bg-white py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto mb-16 max-w-2xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Planes</p>
+        <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">Elegí tu nivel de precisión</h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="flex flex-col rounded-2xl border border-blue-100 bg-blue-50/30 p-8 shadow-sm transition-all hover:shadow-md">
+          <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-blue-100/50 border border-blue-200 mb-4">
+            <h3 class="font-display text-xl text-blue-700">Starter</h3>
+          </div>
+          <p class="text-sm text-slate-500">Para oficinas y locales comerciales.</p>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-4xl font-display text-[#1b1f3b]">u$s 25</span>
+            <span class="text-sm text-slate-500">/mes</span>
+          </div>
+          <ul class="mt-8 space-y-4 text-sm text-slate-600">
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Hasta 15 puntos de destino</li>
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lógica de Nodos funcionando</li>
+            <li class="flex items-center gap-3 text-slate-400"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Mapeo sobre tu propio plano</li>
+          </ul>
+          <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">Contratar Starter</a>
+        </div>
+
+        <div class="flex flex-col rounded-2xl border border-indigo-100 bg-indigo-50/30 p-8 shadow-sm transition-all hover:shadow-md">
+          <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-indigo-100/50 border border-indigo-200 mb-4">
+            <h3 class="font-display text-xl text-indigo-700">Business</h3>
+          </div>
+          <p class="text-sm text-slate-500">Para supermercados y grandes tiendas.</p>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-4xl font-display text-[#1b1f3b]">u$s 149</span>
+            <span class="text-sm text-slate-500">/mes</span>
+          </div>
+          <ul class="mt-8 space-y-4 text-sm text-slate-600">
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Destinos ilimitados</li>
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Hard Reset Logic Pro</li>
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Buscador de pasillos inteligente</li>
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Analíticas de tráfico real</li>
+          </ul>
+          <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">Contratar Business</a>
+        </div>
+
+        <div class="flex flex-col rounded-2xl border border-slate-200 bg-slate-100/50 p-8 shadow-sm transition-all hover:shadow-md">
+          <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-slate-200/50 border border-slate-300 mb-4">
+            <h3 class="font-display text-xl text-slate-700">Enterprise</h3>
+          </div>
+          <p class="text-sm text-slate-500">Superficies de más de 10.000 m².</p>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-4xl font-display text-[#1b1f3b]">A convenir</span>
+          </div>
+          <ul class="mt-8 space-y-4 text-sm text-slate-600">
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Soporte On-Site (Mapeo físico)</li>
+            <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Integración SDK para App propia</li>
+            <li class="flex items-center gap-3 text-slate-400"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Navegación Multi-planta avanzada</li>
+          </ul>
+          <a href="#contact" class="mt-8 block rounded-xl border border-slate-900 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-900 hover:text-white transition-colors">Consultar precio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative bg-white py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Contacto</p>
+        <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">¿Mapeamos tu espacio?</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-500">Agendá una demo para conocer nuestra tecnología de nodos y limpieza de coordenadas.</p>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-lg">
+        <form class="flex flex-col gap-5 rounded-2xl border border-slate-200/60 bg-[#fcfcfd] p-8 shadow-sm" onsubmit="event.preventDefault()">
+          <div class="flex flex-col gap-1.5">
+            <label for="name" class="text-sm font-medium text-[#1b1f3b]">Nombre</label>
+            <input id="name" type="text" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label for="email" class="text-sm font-medium text-[#1b1f3b]">Email</label>
+            <input id="email" type="email" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label for="message" class="text-sm font-medium text-[#1b1f3b]">Mensaje</label>
+            <textarea id="message" rows="4" class="resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
+          </div>
+          <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700">
+            Enviar Solicitud
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#1a1d2e] text-[#c8cad6]">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <div class="flex flex-col items-center justify-between gap-8 border-b border-[#c8cad6]/10 pb-12 md:flex-row">
+        <div class="flex flex-col items-center gap-4 md:items-start">
+          <div class="flex items-center gap-2.5">
+            <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            </div>
+            <span class="text-xl font-display tracking-wide text-[#c8cad6]">IndoorPS</span>
+          </div>
+          <p class="text-center text-sm text-[#c8cad6]/60 md:text-left">Donde el GPS no llega.</p>
+        </div>
+        <div class="flex gap-8">
+          <a href="#features" class="text-sm transition-colors hover:text-white">Tecnología</a>
+          <a href="#pricing" class="text-sm transition-colors hover:text-white">Precios</a>
+          <a href="#contact" class="text-sm transition-colors hover:text-white">Contacto</a>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-xs text-[#c8cad6]/40">
+        © 2026 IndoorPS Technologies. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('icon-menu');
+
+    toggle.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      iconMenu.innerHTML = isHidden 
+        ? '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>' 
+        : '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+    });
+
+    function closeMobile() {
+      menu.classList.add('hidden');
+      iconMenu.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+    }
+  </script>
 </body>
 </html>
