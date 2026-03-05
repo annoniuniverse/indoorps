@@ -78,6 +78,35 @@
       transform-box: fill-box;
       transform-origin: center;
     }
+    /* Estilo para el contenedor de la demo tipo celular */
+    .mobile-wrapper {
+      position: relative;
+      width: 280px;
+      height: 580px;
+      background: #0f172a;
+      border-radius: 40px;
+      border: 12px solid #1e293b;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    .mobile-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      background: white;
+      border: none;
+    }
+    .mobile-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 25px;
+      background: #1e293b;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      z-index: 10;
+    }
   </style>
 </head>
 
@@ -93,6 +122,7 @@
       <div class="hidden items-center gap-8 md:flex">
         <a href="#features" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Tecnología</a>
         <a href="#solutions" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Soluciones</a>
+        <a href="#demos" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Demos</a>
         <a href="#pricing" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Precios</a>
         <a href="#contact" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Contacto</a>
         <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 active:scale-[0.98]">
@@ -111,6 +141,7 @@
       <div class="flex flex-col gap-4">
         <a href="#features" class="text-sm text-slate-500" onclick="closeMobile()">Tecnología</a>
         <a href="#solutions" class="text-sm text-slate-500" onclick="closeMobile()">Soluciones</a>
+        <a href="#demos" class="text-sm text-slate-500" onclick="closeMobile()">Demos</a>
         <a href="#pricing" class="text-sm text-slate-500" onclick="closeMobile()">Precios</a>
         <a href="#contact" class="text-sm text-slate-500" onclick="closeMobile()">Contacto</a>
         <a href="#contact" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white" onclick="closeMobile()">Solicitar Demo</a>
@@ -156,7 +187,7 @@
         </h1>
 
         <p class="max-w-lg text-base leading-relaxed text-slate-500 sm:text-lg animate-fade-in-up animation-delay-400" style="text-wrap:pretty">
-          Mejora la experiencia, optimiza recorridos y toma decisiones con datos reales dentro de tus espacios.
+          Wayfinding v2.0 - Mejora la experiencia, optimiza recorridos y toma decisiones con datos reales dentro de tus espacios.
         </p>
 
         <div class="flex flex-wrap items-center gap-4 animate-fade-in-up animation-delay-600">
@@ -223,7 +254,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
           </div>
           <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">Rutas Inteligentes Indoor</h3>
-          <p class="text-sm leading-relaxed text-slate-500">Conectamos cada punto de tus espacios con precisión y en tiempo real.</p>
+          <p class="text-sm leading-relaxed text-slate-500">Conectamos cada punto de tus espacios con precisión y en tiempo real. La evolucion del Wayfinding!.</p>
         </div>
 
         <div class="group relative rounded-xl border border-slate-200/60 bg-white p-8 transition-all duration-300 hover:border-cyan-300/50 hover:shadow-lg hover:-translate-y-1">
@@ -232,6 +263,34 @@
           </div>
           <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">GPS-Like Experience</h3>
           <p class="text-sm leading-relaxed text-slate-500">La misma simplicidad del GPS, ahora dentro de cualquier espacio cerrado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demos" class="relative bg-white py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto mb-16 max-w-2xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Experiencia Real</p>
+        <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">Simuladores Interactivos</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-500">Probá nuestras implementaciones activas directamente desde este navegador.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-16 lg:gap-24">
+        <div class="flex flex-col items-center gap-6 animate-fade-in-up">
+          <h3 class="text-xl font-display text-[#1b1f3b]">Aeropuerto</h3>
+          <div class="mobile-wrapper">
+            <div class="mobile-notch"></div>
+            <iframe src="https://mapas-varios-aeropuertos.vercel.app/" title="Demo Aeropuerto"></iframe>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-6 animate-fade-in-up animation-delay-200">
+          <h3 class="text-xl font-display text-[#1b1f3b]">Shopping DOT</h3>
+          <div class="mobile-wrapper">
+            <div class="mobile-notch"></div>
+            <iframe src="https://indoorps-dot.vercel.app/" title="Demo DOT"></iframe>
+          </div>
         </div>
       </div>
     </div>
