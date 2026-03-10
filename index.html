@@ -78,7 +78,6 @@
       transform-box: fill-box;
       transform-origin: center;
     }
-    /* Estilo para el contenedor de la demo tipo celular */
     .mobile-wrapper {
       position: relative;
       width: 280px;
@@ -121,7 +120,7 @@
 
       <div class="hidden items-center gap-8 md:flex">
         <a href="#features" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Tecnología</a>
-        <a href="#solutions" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Soluciones</a>
+        <a href="#process" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Implementación</a>
         <a href="#demos" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Demos</a>
         <a href="#pricing" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Precios</a>
         <a href="#contact" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Contacto</a>
@@ -140,7 +139,7 @@
     <div id="mobile-menu" class="hidden border-t border-slate-200/50 bg-white px-6 py-4 md:hidden">
       <div class="flex flex-col gap-4">
         <a href="#features" class="text-sm text-slate-500" onclick="closeMobile()">Tecnología</a>
-        <a href="#solutions" class="text-sm text-slate-500" onclick="closeMobile()">Soluciones</a>
+        <a href="#process" class="text-sm text-slate-500" onclick="closeMobile()">Implementación</a>
         <a href="#demos" class="text-sm text-slate-500" onclick="closeMobile()">Demos</a>
         <a href="#pricing" class="text-sm text-slate-500" onclick="closeMobile()">Precios</a>
         <a href="#contact" class="text-sm text-slate-500" onclick="closeMobile()">Contacto</a>
@@ -200,13 +199,26 @@
           </a>
         </div>
 
-        <div class="mt-4 flex flex-wrap items-center gap-8 border-t border-slate-200/50 pt-6">
-          <div><p class="text-xs text-slate-500">Sin Hardware</p></div>
-          <div class="h-8 w-px bg-slate-200"></div>
-          <div><p class="text-xs text-slate-500">Sin Sensores</p></div>
-          <div class="h-8 w-px bg-slate-200"></div>
-          <div><p class="text-xs text-slate-500">Sin tocar tu infraestructura</p></div>
+        <!-- CAMBIO 3: Destacar "Sin Hardware, Sin Sensores, Sin tocar tu infraestructura" -->
+        <div class="mt-4 animate-fade-in-up animation-delay-600">
+          <div class="inline-flex flex-wrap items-center gap-3 rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-indigo-50 to-cyan-50 px-6 py-4 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="flex h-2 w-2 rounded-full bg-blue-400"></span>
+              <p class="text-sm font-semibold text-blue-700">Sin Hardware</p>
+            </div>
+            <div class="h-5 w-px bg-blue-200"></div>
+            <div class="flex items-center gap-2">
+              <span class="flex h-2 w-2 rounded-full bg-indigo-400"></span>
+              <p class="text-sm font-semibold text-indigo-700">Sin Sensores</p>
+            </div>
+            <div class="h-5 w-px bg-blue-200"></div>
+            <div class="flex items-center gap-2">
+              <span class="flex h-2 w-2 rounded-full bg-cyan-500"></span>
+              <p class="text-sm font-semibold text-cyan-700">Sin tocar tu infraestructura</p>
+            </div>
+          </div>
         </div>
+
       </div>
 
       <div class="flex flex-1 items-center justify-center">
@@ -268,7 +280,39 @@
     </div>
   </section>
 
-  <section id="demos" class="relative bg-white py-24">
+  <section id="process" class="relative bg-white py-24 border-y border-slate-100">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto mb-16 max-w-3xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Implementación</p>
+        <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">De tu mapa físico a la navegación inteligente en días.</h2>
+        <p class="mt-4 text-slate-500">Simplicidad total: nosotros nos encargamos de la complejidad técnica.</p>
+      </div>
+
+      <div class="grid gap-12 md:grid-cols-3 relative">
+        <div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-px border-t border-dashed border-blue-200 -z-10"></div>
+        
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white font-display text-xl shadow-lg shadow-blue-200">01</div>
+          <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]">Entrega de Planos</h3>
+          <p class="text-sm leading-relaxed text-slate-500">Nos compartís el mapa de tu espacio (PDF, CAD o imagen) y los puntos de referencia clave.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white font-display text-xl shadow-lg shadow-blue-200">02</div>
+          <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]">Digitalización</h3>
+          <p class="text-sm leading-relaxed text-slate-500">Nuestro equipo procesa la geometría y configura la red de navegación inteligente.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white font-display text-xl shadow-lg shadow-blue-200">03</div>
+          <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]">Despliegue</h3>
+          <p class="text-sm leading-relaxed text-slate-500">En pocos días, recibís tu sistema listo para funcionar. Sin instalaciones complejas, solo un QR.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demos" class="relative bg-[#fcfcfd] py-24">
     <div class="mx-auto max-w-7xl px-6">
       <div class="mx-auto mb-16 max-w-2xl text-center">
         <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Experiencia Real</p>
@@ -296,7 +340,71 @@
     </div>
   </section>
 
-  <section id="pricing" class="relative bg-white py-24">
+  <section id="solutions" class="relative bg-white py-24 overflow-hidden">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto mb-16 max-w-2xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">¿Por qué IndoorPS?</p>
+        <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">Impacto directo en tu negocio.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+        <!-- CAMBIO 1: CX Superior — se eliminó el SVG decorativo (círculo en cuadrado) del fondo -->
+        <div class="md:row-span-2 group relative overflow-hidden rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:shadow-xl hover:shadow-blue-500/5">
+          <div class="relative z-10 flex h-full flex-col">
+            <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-2xl font-display text-[#1b1f3b] mb-4">CX Superior</h3>
+            <p class="text-slate-500 leading-relaxed mb-6">El usuario accede al mapa al instante, sin descargar apps ni registrarse. Navegación fluida, rápida y totalmente sin fricción para el cliente final.</p>
+            <div class="mt-auto pt-6">
+             
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMBIO 2: Optimización de Rutas — pastel más fuerte (purple-100) -->
+        <div class="md:col-span-2 group relative overflow-hidden rounded-3xl border border-purple-200 bg-purple-100 p-8 transition-all hover:shadow-xl hover:shadow-purple-500/5">
+          <div class="flex flex-col md:flex-row gap-8 items-start h-full">
+            <div class="flex-1">
+              <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.512a2 2 0 011.553-1.96L9 2l6 3 5.447-2.724A2 2 0 0121 4.236v9.976a2 2 0 01-1.553 1.96L15 19l-6 1z"/></svg>
+              </div>
+              <h3 class="text-xl font-display text-[#1b1f3b] mb-2">Optimización de Rutas</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">Reducí la congestión en pasillos críticos y guiá estratégicamente el flujo de personas hacia las áreas comerciales que más te interesan potenciar.</p>
+            </div>
+            <div class="hidden md:block w-48 shrink-0">
+               <div class="grid grid-cols-2 gap-2 opacity-30">
+                  <div class="h-12 bg-purple-300 rounded-lg animate-pulse"></div>
+                  <div class="h-12 bg-purple-400 rounded-lg"></div>
+                  <div class="h-12 bg-purple-200 rounded-lg"></div>
+                  <div class="h-12 bg-purple-300 rounded-lg animate-pulse"></div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMBIO 2: Monetización — pastel más fuerte (cyan-100) -->
+        <div class="group relative overflow-hidden rounded-3xl border border-cyan-200 bg-cyan-100 p-8 transition-all hover:shadow-xl hover:shadow-cyan-500/5">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg>
+          </div>
+          <h3 class="text-xl font-display text-[#1b1f3b] mb-2">Monetización</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Transformá el mapa en un activo digital. Vendé destaques premium, logos de marcas y banners directamente a tus locatarios.</p>
+        </div>
+
+        <!-- CAMBIO 2: Analítica — pastel más fuerte (emerald-100) -->
+        <div class="group relative overflow-hidden rounded-3xl border border-emerald-200 bg-emerald-100 p-8 transition-all hover:shadow-xl hover:shadow-emerald-500/5">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="text-xl font-display text-[#1b1f3b] mb-2">Analítica</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Entendé qué buscan tus clientes y por dónde caminan realmente. Datos concretos para decisiones comerciales inteligentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="relative bg-slate-50/40 py-24">
     <div class="mx-auto max-w-7xl px-6">
       <div class="mx-auto mb-16 max-w-2xl text-center">
         <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Planes</p>
@@ -304,7 +412,7 @@
       </div>
 
       <div class="grid gap-8 md:grid-cols-3">
-        <div class="flex flex-col rounded-2xl border border-blue-100 bg-blue-50/30 p-8 shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col rounded-2xl border border-blue-100 bg-white p-8 shadow-sm transition-all hover:shadow-md">
           <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-blue-100/50 border border-blue-200 mb-4">
             <h3 class="font-display text-xl text-blue-700">Starter</h3>
           </div>
@@ -321,7 +429,7 @@
           <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">Contratar Starter</a>
         </div>
 
-        <div class="flex flex-col rounded-2xl border border-indigo-100 bg-indigo-50/30 p-8 shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col rounded-2xl border border-indigo-100 bg-white p-8 shadow-xl shadow-indigo-100/50 scale-105 transition-all">
           <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-indigo-100/50 border border-indigo-200 mb-4">
             <h3 class="font-display text-xl text-indigo-700">Business</h3>
           </div>
@@ -336,10 +444,10 @@
             <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Buscador de pasillos inteligente</li>
             <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Analíticas de tráfico real</li>
           </ul>
-          <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">Contratar Business</a>
+          <a href="#contact" class="mt-8 block rounded-xl bg-blue-600 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors">Contratar Business</a>
         </div>
 
-        <div class="flex flex-col rounded-2xl border border-slate-200 bg-slate-100/50 p-8 shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-md">
           <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-slate-200/50 border border-slate-300 mb-4">
             <h3 class="font-display text-xl text-slate-700">Enterprise</h3>
           </div>
@@ -363,7 +471,7 @@
       <div class="mx-auto max-w-2xl text-center">
         <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Contacto</p>
         <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">¿Mapeamos tu espacio?</h2>
-        <p class="mt-4 text-base leading-relaxed text-slate-500">Agendá una demo para conocer nuestra tecnología de nodos y limpieza de coordenadas.</p>
+        <p class="mt-4 text-base leading-relaxed text-slate-500">Agendá una demo para conocer nuestra tecnología de navegación y posicionamiento indoor.</p>
       </div>
 
       <div class="mx-auto mt-12 max-w-lg">
@@ -411,59 +519,35 @@
   </footer>
 
   <script>
-    const toggle = document.getElementById('mobile-toggle');
-    const menu = document.getElementById('mobile-menu');
-    const iconMenu = document.getElementById('icon-menu');
-
-    toggle.addEventListener('click', () => {
-      const isHidden = menu.classList.toggle('hidden');
-      iconMenu.innerHTML = isHidden 
-        ? '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>' 
-        : '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
 
     function closeMobile() {
-      menu.classList.add('hidden');
-      iconMenu.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+      mobileMenu.classList.add('hidden');
     }
 
-    // LÓGICA PARA EL ENVÍO DE FORMULARIO SIN SALIR DE LA PÁGINA
-    const form = document.getElementById("contact-form");
-    const btn = document.getElementById("submit-button");
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    async function handleSubmit(event) {
-      event.preventDefault();
-      const originalText = btn.innerHTML;
-      btn.innerHTML = "Enviando...";
-      btn.disabled = true;
-
-      const data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
         }
-      }).then(response => {
-        if (response.ok) {
-          btn.innerHTML = "¡Mensaje Enviado!";
-          btn.classList.replace('bg-blue-600', 'bg-green-600');
-          form.reset();
-          setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.classList.replace('bg-green-600', 'bg-blue-600');
-            btn.disabled = false;
-          }, 4000);
-        } else {
-          btn.innerHTML = "Error al enviar";
-          btn.disabled = false;
-        }
-      }).catch(error => {
-        btn.innerHTML = "Error de conexión";
-        btn.disabled = false;
       });
-    }
-    form.addEventListener("submit", handleSubmit);
+    }, observerOptions);
+
+    document.querySelectorAll('section, .animate-fade-in-up').forEach(el => {
+      observer.observe(el);
+    });
   </script>
+
 </body>
 </html>
