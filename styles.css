@@ -1,331 +1,42 @@
-/* VARIABLES GLOBALES */
-:root {
-    --primary: #0081c9;
-    --dark: #0f172a;
-    --gray: #64748b;
-    --light: #f8fafc;
-    --glass: rgba(255, 255, 255, 0.8);
+/* --- ANIMACIONES ADICIONALES (MANTIENE LA LÓGICA DEL HTML) --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@keyframes dash-flow {
+    to { stroke-dashoffset: -40; }
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--dark);
-    line-height: 1.6;
-    background-color: #fff;
-    overflow-x: hidden;
+@keyframes pulse-node {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* NAVEGACIÓN */
-header {
-    padding: 15px 8%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: var(--glass);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Clases de animación para compatibilidad con Tailwind */
+.animate-float { 
+    animation: float 5s ease-in-out infinite; 
+}
+.animate-dash { 
+    animation: dash-flow 2s linear infinite; 
+}
+.animate-pulse-node { 
+    animation: pulse-node 2.5s ease-in-out infinite; 
+}
+.animate-fade-in-up { 
+    animation: fade-in-up 0.8s ease-out forwards; 
 }
 
-.logo {
-    font-family: 'Righteous', cursive;
-    font-size: 1.6rem;
-    color: var(--primary);
-    text-decoration: none;
-    letter-spacing: -0.5px;
+/* Utility classes para fuentes y estados */
+.font-display { 
+    font-family: 'Righteous', cursive !important; 
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 35px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--primary);
-}
-
-/* HERO SECTION - REDISEÑADO PARA FONDO ESTÁTICO */
-.hero {
-    position: relative;
-    padding: 120px 8% 100px;
-    background: radial-gradient(circle at top right, #f0f9ff, #ffffff);
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-.hero-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    z-index: 10; /* Elevamos el texto para que esté siempre arriba */
-    width: 100%;
-}
-
-.hero-text {
-    flex: 1.2; /* Un poco más de espacio al texto */
-}
-
-.hero-text h1 {
-    font-family: 'Righteous', cursive;
-    font-size: 4.5rem; /* Un poco más grande para impactar */
-    line-height: 1.05;
-    margin-bottom: 25px;
-    color: var(--dark);
-    text-shadow: 0 0 40px rgba(255,255,255,0.8); /* Sutil sombra blanca para leer mejor sobre el mapa */
-}
-
-.badge {
-    background: #e0f2fe;
-    color: var(--primary);
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    color: var(--gray);
-    margin-bottom: 40px;
-    max-width: 550px;
-}
-
-/* BOTONES */
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-    padding: 18px 35px;
-    border-radius: 14px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
+.transition-hover {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 20px rgba(0, 129, 201, 0.2);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 129, 201, 0.3);
-}
-
-.btn-secondary {
-    background: white;
-    color: var(--dark);
-    padding: 18px 35px;
-    border-radius: 14px;
-    border: 1px solid #e2e8f0;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* CONTENEDOR DE LA IMAGEN COMO FONDO DERECHO */
-.hero-image-container {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end; /* La tiramos a la derecha */
-    position: relative;
-}
-
-.map-wrapper {
-    position: absolute;
-    width: 140%; /* Super grande */
-    right: -20%; /* Que se salga un poco de la pantalla */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1; /* DETRÁS DEL TEXTO */
-}
-
-.main-map-3d {
-    width: 100%;
-    height: auto;
-    border-radius: 40px;
-    /* Inclinación estática (sin animación) */
-    transform: rotateX(10deg) rotateY(-15deg); 
-    box-shadow: -50px 50px 100px rgba(0,0,0,0.1);
-    opacity: 0.85; /* Sutil transparencia para integrar con el fondo */
-    filter: drop-shadow(0 0 20px rgba(0, 129, 201, 0.05));
-    border: 1px solid rgba(255,255,255,0.4);
-}
-
-/* Quitamos las capas decorativas viejas para limpiar el diseño */
-.hero-map-overlay {
-    display: none; 
-}
-
-/* --- RESTO DE SECCIONES (IGUALES) --- */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    padding: 120px 8%;
-    background: #fff;
-    position: relative;
-    z-index: 20; /* Aseguramos que tape el mapa al scrollear */
-}
-
-.feature-card-modern {
-    background: #ffffff;
-    padding: 45px;
-    border-radius: 28px;
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    border: 1px solid #f1f5f9;
-    transition: all 0.4s ease;
-}
-
-.feature-card-modern:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.05);
-}
-
-.icon-wrapper {
-    background: #f0f9ff;
-    color: var(--primary);
-    padding: 22px;
-    border-radius: 18px;
-    min-width: 85px;
-    height: 85px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.feature-card-modern:hover .icon-wrapper {
-    background: var(--primary);
-    color: white;
-}
-
-.card-content h3 {
-    font-family: 'Righteous', cursive;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: var(--dark);
-}
-
-.card-content p {
-    color: var(--gray);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.badge-sector {
-    background: #f8fafc;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-family: 'Righteous', cursive;
-    border: 1px solid #e2e8f0;
-    color: var(--gray);
-    transition: 0.3s;
-    cursor: default;
-}
-
-.contact-box {
-    background: var(--dark);
-    color: white;
-    padding: 80px 60px;
-    border-radius: 40px;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-input, textarea {
-    padding: 18px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    background: #1e293b;
-    color: white;
-}
-
-@media (max-width: 1100px) {
-    .hero-container { flex-direction: column; text-align: center; }
-    .hero-text h1 { font-size: 3rem; }
-    .hero-buttons { justify-content: center; }
-    .map-wrapper { width: 100%; position: relative; right: 0; margin-top: 50px; }
-    .features-grid { grid-template-columns: 1fr; }
-}
-
-/* --- ESTILOS EXTRAÍDOS DEL HTML (SIN TOCAR LÓGICA) --- */
-.blueprint-grid {
-    background-image:
-        linear-gradient(rgba(100, 140, 200, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(100, 140, 200, 0.06) 1px, transparent 1px),
-        linear-gradient(rgba(100, 140, 200, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(100, 140, 200, 0.03) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-}
-.animation-delay-200 { animation-delay: 200ms; }
-.animation-delay-400 { animation-delay: 400ms; }
-.animation-delay-600 { animation-delay: 600ms; }
-html { scroll-behavior: smooth; }
-.animate-fade-in-up { opacity: 0; }
-.nodes-container circle {
-    transform-box: fill-box;
-    transform-origin: center;
-}
-.mobile-wrapper {
-    position: relative;
-    width: 280px;
-    height: 580px;
-    background: #0f172a;
-    border-radius: 40px;
-    border: 12px solid #1e293b;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-}
-.mobile-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    background: white;
-    border: none;
-}
-.mobile-notch {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 25px;
-    background: #1e293b;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 10;
 }
