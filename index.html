@@ -91,18 +91,22 @@
                     <feMerge><feMergeNode in="shadow"/><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
             </defs>
-            <polyline points="90,80 490,80 590,340 840,340 840,540 1140,540" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" opacity="0.85"/>
-            <polyline points="90,80 490,80 590,340 840,340 840,540 1140,540" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" class="animate-dash" opacity="0.6"/>
             
-            <circle r="6" fill="#22d3ee" filter="url(#glow-blue)">
-                <animateMotion 
-                    dur="12s" 
-                    repeatCount="indefinite" 
-                    path="M90,80 L490,80 L590,340 L840,340 L840,540 L1140,540" 
-                    calcMode="linear" />
-            </circle>
-
-
+            <g class="pc-only">
+                <polyline points="90,80 490,80 590,340 840,340 840,540 1140,540" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" opacity="0.85"/>
+                <polyline points="90,80 490,80 590,340 840,340 840,540 1140,540" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" class="animate-dash" opacity="0.6"/>
+                <circle r="6" fill="#22d3ee" filter="url(#glow-blue)">
+                    <animateMotion dur="12s" repeatCount="indefinite" path="M90,80 L490,80 L590,340 L840,340 L840,540 L1140,540" calcMode="linear" />
+                </circle>
+            </g>
+            
+            <g class="mobile-only">
+                <polyline points="50,50 200,50 250,150 400,150" fill="none" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" opacity="0.9"/>
+                <polyline points="50,50 200,50 250,150 400,150" fill="none" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" class="animate-dash" opacity="0.7"/>
+                <circle r="8" fill="#22d3ee" filter="url(#glow-blue)">
+                    <animateMotion dur="10s" repeatCount="indefinite" path="M50,50 L200,50 L250,150 L400,150" calcMode="linear" />
+                </circle>
+            </g>
         </svg>
 
         <div class="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-20 lg:flex-row lg:gap-16 lg:py-28">
@@ -246,97 +250,101 @@
     </section>
 
     <section id="demos" class="relative bg-[#fcfcfd] py-24">
-      <div class="mx-auto max-w-7xl px-6">
-          <div class="mx-auto mb-12 max-w-2xl text-center">
-              <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="demos.badge">Experiencia Real</p>
-              <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="demos.title">Simulador Interactivo</h2>
-              <p class="mt-4 text-base leading-relaxed text-slate-500" data-i18n="demos.subtitle">Explorá la navegación de alta precisión directamente desde aquí.</p>
-          </div>
-
-          <div class="relative mx-auto max-w-5xl">
-              <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all hover:shadow-blue-500/10">
-                  <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50/50 px-4 py-3">
-                      <div class="flex gap-1.5">
-                          <span class="h-3 w-3 rounded-full bg-[#ff5f56]"></span>
-                          <span class="h-3 w-3 rounded-full bg-[#ffbd2e]"></span>
-                          <span class="h-3 w-3 rounded-full bg-[#27c93f]"></span>
-                      </div>
-                      <div class="text-[10px] font-medium uppercase tracking-widest text-slate-400">IndoorPS Live Demo - Seven Map</div>
-                      <div class="w-12"></div>
-                  </div>
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mx-auto mb-12 max-w-2xl text-center">
+                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="demos.badge">Experiencia Real</p>
+                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="demos.title">Simulador Interactivo</h2>
+                <p class="mt-4 text-base leading-relaxed text-slate-500" data-i18n="demos.subtitle">Explorá la navegación de alta precisión directamente desde aquí.</p>
+            </div>
+  
+            <div class="relative mx-auto max-w-5xl">
+                <div id="map-container" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all hover:shadow-blue-500/10">
+                    <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50/50 px-4 py-3">
+                        <div class="flex gap-1.5">
+                            <span class="h-3 w-3 rounded-full bg-[#ff5f56]"></span>
+                            <span class="h-3 w-3 rounded-full bg-[#ffbd2e]"></span>
+                            <span class="h-3 w-3 rounded-full bg-[#27c93f]"></span>
+                        </div>
+                        <div class="text-[10px] font-medium uppercase tracking-widest text-slate-400">IndoorPS Live Demo - Seven Map</div>
+                        <div class="w-12"></div>
+                    </div>
+        
+                    <div class="mobile-only-link text-center py-16 bg-slate-50/30">
+                        <a href="https://sevendemo.vercel.app/" target="_blank" class="btn-fullscreen inline-block">
+                            📍 Abrir mapa interactivo (Pantalla Completa)
+                        </a>
+                    </div>
                   
-                  <div class="relative aspect-video w-full bg-slate-100 md:aspect-[21/9]">
-                      <iframe 
-                          src="https://sevendemo.vercel.app/" 
-                          title="Demo Seven Map"
-                          class="h-full w-full border-none"
-                          loading="lazy">
-                      </iframe>
+                    <div id="iframe-wrapper" class="relative aspect-video w-full bg-slate-100 md:aspect-[21/9]">
+                        <iframe 
+                            src="https://sevendemo.vercel.app/" 
+                            title="Demo Seven Map"
+                            class="h-full w-full border-none"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="absolute -bottom-6 -right-6 -z-10 h-64 w-64 rounded-full bg-blue-100/40 blur-3xl"></div>
+                <div class="absolute -left-6 -top-6 -z-10 h-64 w-64 rounded-full bg-purple-100/30 blur-3xl"></div>
+            </div>
+  
+      <section id="pricing" class="relative bg-slate-50/40 py-24">
+          <div class="mx-auto max-w-7xl px-6">
+              <div class="mx-auto mb-16 max-w-2xl text-center">
+                  <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="pricing.badge">Planes</p>
+                  <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="pricing.title">Elegí tu nivel de precisión</h2>
+              </div>
+  
+              <div class="grid gap-8 md:grid-cols-3">
+                  <div class="flex flex-col rounded-2xl border border-blue-100 bg-white p-8 shadow-sm transition-all hover:shadow-md">
+                      <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-blue-100/50 border border-blue-200 mb-4">
+                          <h3 class="font-display text-xl text-blue-700" data-i18n="pricing.starter.name">Starter</h3>
+                      </div>
+                      <p class="text-sm text-slate-500" data-i18n="pricing.starter.desc">Para oficinas y locales comerciales.</p>
+                      <div class="mt-6 flex items-baseline gap-1">
+                          <span class="text-4xl font-display text-[#1b1f3b]">u$s 25</span>
+                          <span class="text-sm text-slate-500" data-i18n="pricing.mo">/mes</span>
+                      </div>
+                      <ul class="mt-8 space-y-4 text-sm text-slate-600">
+                          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.starter.f1">Hasta 15 puntos de destino</span></li>
+                          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.starter.f2">Lógica de Nodos funcionando</span></li>
+                      </ul>
+                      <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors" data-i18n="pricing.cta">Contratar Starter</a>
+                  </div>
+  
+                  <div class="flex flex-col rounded-2xl border border-indigo-100 bg-white p-8 shadow-xl shadow-indigo-100/50 scale-105 transition-all">
+                      <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-indigo-100/50 border border-indigo-200 mb-4">
+                          <h3 class="font-display text-xl text-indigo-700" data-i18n="pricing.business.name">Business</h3>
+                      </div>
+                      <p class="text-sm text-slate-500" data-i18n="pricing.business.desc">Para supermercados y grandes tiendas.</p>
+                      <div class="mt-6 flex items-baseline gap-1">
+                          <span class="text-4xl font-display text-[#1b1f3b]">u$s 199</span>
+                          <span class="text-sm text-slate-500" data-i18n="pricing.mo">/mes</span>
+                      </div>
+                      <ul class="mt-8 space-y-4 text-sm text-slate-600">
+                          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.business.f1">Destinos ilimitados</span></li>
+                          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.business.f2">Hard Reset Logic Pro</span></li>
+                      </ul>
+                      <a href="#contact" class="mt-8 block rounded-xl bg-blue-600 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors" data-i18n="pricing.cta">Contratar Business</a>
+                  </div>
+  
+                  <div class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-md">
+                      <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-slate-200/50 border border-slate-300 mb-4">
+                          <h3 class="font-display text-xl text-slate-700" data-i18n="pricing.enterprise.name">Enterprise</h3>
+                      </div>
+                      <p class="text-sm text-slate-500" data-i18n="pricing.enterprise.desc">Superficies de más de 10.000 m².</p>
+                      <div class="mt-6 flex items-baseline gap-1">
+                          <span class="text-4xl font-display text-[#1b1f3b]" data-i18n="pricing.enterprise.price">A convenir</span>
+                      </div>
+                      <ul class="mt-8 space-y-4 text-sm text-slate-600">
+                          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.enterprise.f1">Soporte On-Site</span></li>
+                      </ul>
+                      <a href="#contact" class="mt-8 block rounded-xl border border-slate-900 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-900 hover:text-white transition-colors" data-i18n="pricing.cta_enterprise">Consultar precio</a>
                   </div>
               </div>
-              
-              <div class="absolute -bottom-6 -right-6 -z-10 h-64 w-64 rounded-full bg-blue-100/40 blur-3xl"></div>
-              <div class="absolute -left-6 -top-6 -z-10 h-64 w-64 rounded-full bg-purple-100/30 blur-3xl"></div>
           </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="relative bg-slate-50/40 py-24">
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="mx-auto mb-16 max-w-2xl text-center">
-                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="pricing.badge">Planes</p>
-                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="pricing.title">Elegí tu nivel de precisión</h2>
-            </div>
-
-            <div class="grid gap-8 md:grid-cols-3">
-                <div class="flex flex-col rounded-2xl border border-blue-100 bg-white p-8 shadow-sm transition-all hover:shadow-md">
-                    <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-blue-100/50 border border-blue-200 mb-4">
-                        <h3 class="font-display text-xl text-blue-700" data-i18n="pricing.starter.name">Starter</h3>
-                    </div>
-                    <p class="text-sm text-slate-500" data-i18n="pricing.starter.desc">Para oficinas y locales comerciales.</p>
-                    <div class="mt-6 flex items-baseline gap-1">
-                        <span class="text-4xl font-display text-[#1b1f3b]">u$s 25</span>
-                        <span class="text-sm text-slate-500" data-i18n="pricing.mo">/mes</span>
-                    </div>
-                    <ul class="mt-8 space-y-4 text-sm text-slate-600">
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.starter.f1">Hasta 15 puntos de destino</span></li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.starter.f2">Lógica de Nodos funcionando</span></li>
-                    </ul>
-                    <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors" data-i18n="pricing.cta">Contratar Starter</a>
-                </div>
-
-                <div class="flex flex-col rounded-2xl border border-indigo-100 bg-white p-8 shadow-xl shadow-indigo-100/50 scale-105 transition-all">
-                    <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-indigo-100/50 border border-indigo-200 mb-4">
-                        <h3 class="font-display text-xl text-indigo-700" data-i18n="pricing.business.name">Business</h3>
-                    </div>
-                    <p class="text-sm text-slate-500" data-i18n="pricing.business.desc">Para supermercados y grandes tiendas.</p>
-                    <div class="mt-6 flex items-baseline gap-1">
-                        <span class="text-4xl font-display text-[#1b1f3b]">u$s 199</span>
-                        <span class="text-sm text-slate-500" data-i18n="pricing.mo">/mes</span>
-                    </div>
-                    <ul class="mt-8 space-y-4 text-sm text-slate-600">
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.business.f1">Destinos ilimitados</span></li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.business.f2">Hard Reset Logic Pro</span></li>
-                    </ul>
-                    <a href="#contact" class="mt-8 block rounded-xl bg-blue-600 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors" data-i18n="pricing.cta">Contratar Business</a>
-                </div>
-
-                <div class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-md">
-                    <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-slate-200/50 border border-slate-300 mb-4">
-                        <h3 class="font-display text-xl text-slate-700" data-i18n="pricing.enterprise.name">Enterprise</h3>
-                    </div>
-                    <p class="text-sm text-slate-500" data-i18n="pricing.enterprise.desc">Superficies de más de 10.000 m².</p>
-                    <div class="mt-6 flex items-baseline gap-1">
-                        <span class="text-4xl font-display text-[#1b1f3b]" data-i18n="pricing.enterprise.price">A convenir</span>
-                    </div>
-                    <ul class="mt-8 space-y-4 text-sm text-slate-600">
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.enterprise.f1">Soporte On-Site</span></li>
-                    </ul>
-                    <a href="#contact" class="mt-8 block rounded-xl border border-slate-900 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-900 hover:text-white transition-colors" data-i18n="pricing.cta_enterprise">Consultar precio</a>
-                </div>
-            </div>
-        </div>
-    </section>
+      </section>
 
     <section id="contact" class="relative bg-white py-24">
         <div class="mx-auto max-w-7xl px-6">

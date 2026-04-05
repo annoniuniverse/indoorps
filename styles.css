@@ -1,42 +1,76 @@
-/* --- ANIMACIONES ADICIONALES (MANTIENE LA LÓGICA DEL HTML) --- */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
+/* --- 1. REGLAS GLOBALES (Para todos los dispositivos) --- */
+
+/* Ocultamos el botón de celular por defecto */
+.mobile-only-link {
+    display: none !important;
 }
 
-@keyframes dash-flow {
-    to { stroke-dashoffset: -40; }
+/* --- 2. REGLAS PARA COMPUTADORA (Pantallas grandes) --- */
+@media (min-width: 769px) {
+    /* FORZAMOS que el mapa aparezca en la PC */
+    #map-container, #iframe-wrapper { 
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        min-height: 500px;
+    }
+
+    /* Líneas decorativas del fondo */
+    g.pc-only {
+        display: inline !important;
+        visibility: visible !important;
+    }
+    
+    .mobile-only, .mobile-only-link {
+        display: none !important;
+    }
 }
 
-@keyframes pulse-node {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
-}
+/* --- 3. REGLAS PARA CELULAR (Pantallas chicas) --- */
+@media (max-width: 768px) {
+    /* MANTENEMOS el contenedor para que se vea el botón */
+    #map-container {
+        display: block !important;
+        visibility: visible !important;
+    }
 
-@keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    /* OCULTAMOS solo el iframe en el celu */
+    #iframe-wrapper {
+        display: none !important;
+    }
 
-/* Clases de animación para compatibilidad con Tailwind */
-.animate-float { 
-    animation: float 5s ease-in-out infinite; 
-}
-.animate-dash { 
-    animation: dash-flow 2s linear infinite; 
-}
-.animate-pulse-node { 
-    animation: pulse-node 2.5s ease-in-out infinite; 
-}
-.animate-fade-in-up { 
-    animation: fade-in-up 0.8s ease-out forwards; 
-}
+    /* MOSTRAMOS el botón azul de Vercel */
+    .mobile-only-link {
+        display: block !important;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
 
-/* Utility classes para fuentes y estados */
-.font-display { 
-    font-family: 'Righteous', cursive !important; 
-}
+    .btn-fullscreen {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white !important;
+        padding: 20px;
+        border-radius: 16px;
+        text-decoration: none;
+        font-family: 'Righteous', cursive !important;
+        font-size: 1.1rem;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-.transition-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .btn-fullscreen:active {
+        transform: scale(0.96);
+    }
+
+    /* Ocultamos las líneas del fondo para que no tapen los textos */
+    g.pc-only, g.mobile-only, section.blueprint-grid > svg {
+        display: none !important;
+        visibility: hidden !important;
+    }
 }
