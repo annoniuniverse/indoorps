@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#3b82f6" />
-    <title>IndoorPS - Donde el GPS no llega</title>
-    <meta name="description" content="Tecnología de navegación y posicionamiento en interiores de precisión para edificios inteligentes, centros comerciales y aeropuertos." />
+    <title data-i18n="head.title">IndoorPS - Donde el GPS no llega</title>
+    <meta name="description" content="Tecnología de navegación y posicionamiento en interiores de precisión para edificios inteligentes, centros comerciales y aeropuertos." data-i18n="head.description" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,12 +41,19 @@
             </a>
 
             <div class="hidden items-center gap-8 md:flex">
-                <a href="#features" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Tecnología</a>
-                <a href="#process" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Implementación</a>
-                <a href="#demos" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Demos</a>
-                <a href="#pricing" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Precios</a>
-                <a href="#contact" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]">Contacto</a>
-                <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 active:scale-[0.98]">
+                <a href="#features" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]" data-i18n="nav.tech">Tecnología</a>
+                <a href="#process" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]" data-i18n="nav.implementation">Implementación</a>
+                <a href="#demos" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]" data-i18n="nav.demos">Demos</a>
+                <a href="#pricing" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]" data-i18n="nav.pricing">Precios</a>
+                <a href="#contact" class="text-sm text-slate-500 transition-colors hover:text-[#1b1f3b]" data-i18n="nav.contact">Contacto</a>
+                
+                <div class="flex items-center gap-2 border-l pl-6 border-slate-200">
+                    <button id="btn-es" class="text-xs font-bold hover:text-blue-600 transition-colors">ES</button>
+                    <span class="text-slate-300">|</span>
+                    <button id="btn-en" class="text-xs font-bold hover:text-blue-600 transition-colors">EN</button>
+                </div>
+
+                <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 active:scale-[0.98]" data-i18n="nav.request_demo">
                     Solicitar Demo
                 </a>
             </div>
@@ -60,12 +67,16 @@
 
         <div id="mobile-menu" class="hidden border-t border-slate-200/50 bg-white px-6 py-4 md:hidden">
             <div class="flex flex-col gap-4">
-                <a href="#features" class="text-sm text-slate-500" onclick="closeMobile()">Tecnología</a>
-                <a href="#process" class="text-sm text-slate-500" onclick="closeMobile()">Implementación</a>
-                <a href="#demos" class="text-sm text-slate-500" onclick="closeMobile()">Demos</a>
-                <a href="#pricing" class="text-sm text-slate-500" onclick="closeMobile()">Precios</a>
-                <a href="#contact" class="text-sm text-slate-500" onclick="closeMobile()">Contacto</a>
-                <a href="#contact" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white" onclick="closeMobile()">Solicitar Demo</a>
+                <a href="#features" class="text-sm text-slate-500" onclick="closeMobile()" data-i18n="nav.tech">Tecnología</a>
+                <a href="#process" class="text-sm text-slate-500" onclick="closeMobile()" data-i18n="nav.implementation">Implementación</a>
+                <a href="#demos" class="text-sm text-slate-500" onclick="closeMobile()" data-i18n="nav.demos">Demos</a>
+                <a href="#pricing" class="text-sm text-slate-500" onclick="closeMobile()" data-i18n="nav.pricing">Precios</a>
+                <a href="#contact" class="text-sm text-slate-500" onclick="closeMobile()" data-i18n="nav.contact">Contacto</a>
+                <div class="flex gap-4 py-2 border-y border-slate-100">
+                    <button onclick="changeLanguage('es'); closeMobile()" class="text-sm font-bold text-blue-600">Español</button>
+                    <button onclick="changeLanguage('en'); closeMobile()" class="text-sm font-bold text-blue-600">English</button>
+                </div>
+                <a href="#contact" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white" onclick="closeMobile()" data-i18n="nav.request_demo">Solicitar Demo</a>
             </div>
         </div>
     </nav>
@@ -80,16 +91,18 @@
                     <feMerge><feMergeNode in="shadow"/><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
             </defs>
-
-            <polyline points="650,120 750,120 750,250 900,250 900,400 1050,400 1050,550" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" opacity="0.85"/>
-            <polyline points="650,120 750,120 750,250 900,250 900,400 1050,400 1050,550" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" class="animate-dash" opacity="0.6"/>
+            <polyline points="90,140 490,140 590,340 840,340 840,540 1140,540" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" opacity="0.85"/>
+            <polyline points="90,140 490,140 590,340 840,340 840,540 1140,540" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 12" class="animate-dash" opacity="0.6"/>
             
-            <g class="nodes-container">
-                <circle cx="650" cy="120" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node"/>
-                <circle cx="750" cy="250" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node" style="animation-delay:0.5s"/>
-                <circle cx="900" cy="400" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node" style="animation-delay:1s"/>
-                <circle cx="1050" cy="550" r="6" fill="#3b82f6" filter="url(#glow-blue)" class="animate-pulse-node" style="animation-delay:1.5s"/>
-            </g>
+            <circle r="6" fill="#22d3ee" filter="url(#glow-blue)">
+                <animateMotion 
+                    dur="12s" 
+                    repeatCount="indefinite" 
+                    path="M90,140 L490,140 L590,340 L840,340 L840,540 L1140,540" 
+                    calcMode="linear" />
+            </circle>
+
+
         </svg>
 
         <div class="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-20 lg:flex-row lg:gap-16 lg:py-28">
@@ -99,24 +112,24 @@
                         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-600 opacity-75"></span>
                         <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-600"></span>
                     </span>
-                    <span class="text-xs font-medium text-blue-600 tracking-wide uppercase">Evolución Digital: Navegación sin límites.</span>
+                    <span class="text-xs font-medium text-blue-600 tracking-wide uppercase" data-i18n="hero.badge">Evolución Digital: Navegación sin límites.</span>
                 </div>
 
-                <h1 class="text-4xl font-display leading-tight tracking-tight text-[#1b1f3b] sm:text-5xl lg:text-6xl xl:text-7xl animate-fade-in-up animation-delay-200" style="text-wrap:balance">
+                <h1 class="text-4xl font-display leading-tight tracking-tight text-[#1b1f3b] sm:text-5xl lg:text-6xl xl:text-7xl animate-fade-in-up animation-delay-200" style="text-wrap:balance" data-i18n="hero.title">
                     Llegamos donde el<br/>
                     <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">GPS no llega.</span>
                 </h1>
 
-                <p class="max-w-lg text-base leading-relaxed text-slate-500 sm:text-lg animate-fade-in-up animation-delay-400" style="text-wrap:pretty">
+                <p class="max-w-lg text-base leading-relaxed text-slate-500 sm:text-lg animate-fade-in-up animation-delay-400" style="text-wrap:pretty" data-i18n="hero.subtitle">
                     Wayfinding v2.0 - Mejora la experiencia, optimiza recorridos y toma decisiones con datos reales dentro de tus espacios.
                 </p>
 
                 <div class="flex flex-wrap items-center gap-4 animate-fade-in-up animation-delay-600">
                     <a href="#contact" class="inline-flex items-center gap-2.5 rounded-xl bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 active:scale-[0.98]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                        Start Tour
+                        <span data-i18n="hero.cta_primary">Start Tour</span>
                     </a>
-                    <a href="#features" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-7 py-3.5 text-sm font-semibold text-[#1b1f3b] transition-all hover:bg-slate-50 hover:border-blue-200 active:scale-[0.98]">
+                    <a href="#features" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-7 py-3.5 text-sm font-semibold text-[#1b1f3b] transition-all hover:bg-slate-50 hover:border-blue-200 active:scale-[0.98]" data-i18n="hero.cta_secondary">
                         Ver Tecnología
                     </a>
                 </div>
@@ -125,17 +138,17 @@
                     <div class="inline-flex flex-wrap items-center gap-3 rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-indigo-50 to-cyan-50 px-6 py-4 shadow-sm">
                         <div class="flex items-center gap-2">
                             <span class="flex h-2 w-2 rounded-full bg-blue-400"></span>
-                            <p class="text-sm font-semibold text-blue-700">Sin Hardware</p>
+                            <p class="text-sm font-semibold text-blue-700" data-i18n="hero.features.no_hw">Sin Hardware</p>
                         </div>
                         <div class="h-5 w-px bg-blue-200"></div>
                         <div class="flex items-center gap-2">
                             <span class="flex h-2 w-2 rounded-full bg-indigo-400"></span>
-                            <p class="text-sm font-semibold text-indigo-700">Sin Sensores</p>
+                            <p class="text-sm font-semibold text-indigo-700" data-i18n="hero.features.no_sensors">Sin Sensores</p>
                         </div>
                         <div class="h-5 w-px bg-blue-200"></div>
                         <div class="flex items-center gap-2">
                             <span class="flex h-2 w-2 rounded-full bg-cyan-500"></span>
-                            <p class="text-sm font-semibold text-cyan-700">Sin tocar tu infraestructura</p>
+                            <p class="text-sm font-semibold text-cyan-700" data-i18n="hero.features.no_infra">Sin tocar tu infraestructura</p>
                         </div>
                     </div>
                 </div>
@@ -169,7 +182,7 @@
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto mb-16 max-w-2xl text-center">
                 <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">IndoorPS Core 2.0</p>
-                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">The next evolution of indoor positioning intelligence.</h2>
+                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="features.main_title">The next evolution of indoor positioning intelligence.</h2>
             </div>
 
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,24 +190,24 @@
                     <div class="mb-5 inline-flex rounded-lg p-3 bg-blue-500/10">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     </div>
-                    <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">Hard Reset Logic</h3>
-                    <p class="text-sm leading-relaxed text-slate-500">Mapeo optimizado mediante limpieza profunda de coordenadas para evitar saltos de señal en interiores.</p>
+                    <h3 class="mb-2 text-lg font-display text-[#1b1f3b]" data-i18n="features.card1.title">Hard Reset Logic</h3>
+                    <p class="text-sm leading-relaxed text-slate-500" data-i18n="features.card1.desc">Mapeo optimizado mediante limpieza profunda de coordenadas para evitar saltos de señal en interiores.</p>
                 </div>
 
                 <div class="group relative rounded-xl border border-slate-200/60 bg-white p-8 transition-all duration-300 hover:border-purple-300/50 hover:shadow-lg hover:-translate-y-1">
                     <div class="mb-5 inline-flex rounded-lg p-3 bg-purple-500/10">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
                     </div>
-                    <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">Rutas Inteligentes Indoor</h3>
-                    <p class="text-sm leading-relaxed text-slate-500">Conectamos cada punto de tus espacios con precisión y en tiempo real. La evolucion del Wayfinding!.</p>
+                    <h3 class="mb-2 text-lg font-display text-[#1b1f3b]" data-i18n="features.card2.title">Rutas Inteligentes Indoor</h3>
+                    <p class="text-sm leading-relaxed text-slate-500" data-i18n="features.card2.desc">Conectamos cada punto de tus espacios con precisión y en tiempo real. La evolucion del Wayfinding!.</p>
                 </div>
 
                 <div class="group relative rounded-xl border border-slate-200/60 bg-white p-8 transition-all duration-300 hover:border-cyan-300/50 hover:shadow-lg hover:-translate-y-1">
                     <div class="mb-5 inline-flex rounded-lg p-3 bg-cyan-500/10">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </div>
-                    <h3 class="mb-2 text-lg font-display text-[#1b1f3b]">GPS-Like Experience</h3>
-                    <p class="text-sm leading-relaxed text-slate-500">La misma simplicidad del GPS, ahora dentro de cualquier espacio cerrado.</p>
+                    <h3 class="mb-2 text-lg font-display text-[#1b1f3b]" data-i18n="features.card3.title">GPS-Like Experience</h3>
+                    <p class="text-sm leading-relaxed text-slate-500" data-i18n="features.card3.desc">La misma simplicidad del GPS, ahora dentro de cualquier espacio cerrado.</p>
                 </div>
             </div>
         </div>
@@ -203,9 +216,9 @@
     <section id="process" class="relative bg-white py-24 border-y border-slate-100">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto mb-16 max-w-3xl text-center">
-                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Implementación</p>
-                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">De tu mapa físico a la navegación inteligente en días.</h2>
-                <p class="mt-4 text-slate-500">Simplicidad total: nosotros nos encargamos de la complejidad técnica.</p>
+                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="process.badge">Implementación</p>
+                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="process.title">De tu mapa físico a la navegación inteligente en días.</h2>
+                <p class="mt-4 text-slate-500" data-i18n="process.subtitle">Simplicidad total: nosotros nos encargamos de la complejidad técnica.</p>
             </div>
 
             <div class="grid gap-12 md:grid-cols-3 relative">
@@ -213,20 +226,20 @@
                 
                 <div class="flex flex-col items-center text-center">
                     <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white font-display text-xl shadow-lg shadow-blue-200">01</div>
-                    <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]">Entrega de Planos</h3>
-                    <p class="text-sm leading-relaxed text-slate-500">Nos compartís el mapa de tu espacio (PDF, CAD o imagen) y los puntos de referencia clave.</p>
+                    <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]" data-i18n="process.step1.title">Entrega de Planos</h3>
+                    <p class="text-sm leading-relaxed text-slate-500" data-i18n="process.step1.desc">Nos compartís el mapa de tu espacio (PDF, CAD o imagen) y los puntos de referencia clave.</p>
                 </div>
 
                 <div class="flex flex-col items-center text-center">
                     <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white font-display text-xl shadow-lg shadow-blue-200">02</div>
-                    <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]">Digitalización</h3>
-                    <p class="text-sm leading-relaxed text-slate-500">Nuestro equipo procesa la geometría y configura la red de navegación inteligente.</p>
+                    <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]" data-i18n="process.step2.title">Digitalización</h3>
+                    <p class="text-sm leading-relaxed text-slate-500" data-i18n="process.step2.desc">Nuestro equipo procesa la geometría y configura la red de navegación inteligente.</p>
                 </div>
 
                 <div class="flex flex-col items-center text-center">
                     <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white font-display text-xl shadow-lg shadow-blue-200">03</div>
-                    <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]">Despliegue</h3>
-                    <p class="text-sm leading-relaxed text-slate-500">En pocos días, recibís tu sistema listo para funcionar. Sin instalaciones complejas, solo un QR.</p>
+                    <h3 class="mb-3 text-lg font-bold text-[#1b1f3b]" data-i18n="process.step3.title">Despliegue</h3>
+                    <p class="text-sm leading-relaxed text-slate-500" data-i18n="process.step3.desc">En pocos días, recibís tu sistema listo para funcionar. Sin instalaciones complejas, solo un QR.</p>
                 </div>
             </div>
         </div>
@@ -235,9 +248,9 @@
     <section id="demos" class="relative bg-[#fcfcfd] py-24">
       <div class="mx-auto max-w-7xl px-6">
           <div class="mx-auto mb-12 max-w-2xl text-center">
-              <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Experiencia Real</p>
-              <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">Simulador Interactivo</h2>
-              <p class="mt-4 text-base leading-relaxed text-slate-500">Explorá la navegación de alta precisión directamente desde aquí.</p>
+              <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="demos.badge">Experiencia Real</p>
+              <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="demos.title">Simulador Interactivo</h2>
+              <p class="mt-4 text-base leading-relaxed text-slate-500" data-i18n="demos.subtitle">Explorá la navegación de alta precisión directamente desde aquí.</p>
           </div>
 
           <div class="relative mx-auto max-w-5xl">
@@ -271,60 +284,55 @@
     <section id="pricing" class="relative bg-slate-50/40 py-24">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto mb-16 max-w-2xl text-center">
-                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Planes</p>
-                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">Elegí tu nivel de precisión</h2>
+                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="pricing.badge">Planes</p>
+                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="pricing.title">Elegí tu nivel de precisión</h2>
             </div>
 
             <div class="grid gap-8 md:grid-cols-3">
                 <div class="flex flex-col rounded-2xl border border-blue-100 bg-white p-8 shadow-sm transition-all hover:shadow-md">
                     <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-blue-100/50 border border-blue-200 mb-4">
-                        <h3 class="font-display text-xl text-blue-700">Starter</h3>
+                        <h3 class="font-display text-xl text-blue-700" data-i18n="pricing.starter.name">Starter</h3>
                     </div>
-                    <p class="text-sm text-slate-500">Para oficinas y locales comerciales.</p>
+                    <p class="text-sm text-slate-500" data-i18n="pricing.starter.desc">Para oficinas y locales comerciales.</p>
                     <div class="mt-6 flex items-baseline gap-1">
                         <span class="text-4xl font-display text-[#1b1f3b]">u$s 25</span>
-                        <span class="text-sm text-slate-500">/mes</span>
+                        <span class="text-sm text-slate-500" data-i18n="pricing.mo">/mes</span>
                     </div>
                     <ul class="mt-8 space-y-4 text-sm text-slate-600">
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Hasta 15 puntos de destino</li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lógica de Nodos funcionando</li>
-                        <li class="flex items-center gap-3 text-slate-400"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Mapeo sobre tu propio plano</li>
+                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.starter.f1">Hasta 15 puntos de destino</span></li>
+                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.starter.f2">Lógica de Nodos funcionando</span></li>
                     </ul>
-                    <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">Contratar Starter</a>
+                    <a href="#contact" class="mt-8 block rounded-xl border border-blue-600 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-600 hover:text-white transition-colors" data-i18n="pricing.cta">Contratar Starter</a>
                 </div>
 
                 <div class="flex flex-col rounded-2xl border border-indigo-100 bg-white p-8 shadow-xl shadow-indigo-100/50 scale-105 transition-all">
                     <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-indigo-100/50 border border-indigo-200 mb-4">
-                        <h3 class="font-display text-xl text-indigo-700">Business</h3>
+                        <h3 class="font-display text-xl text-indigo-700" data-i18n="pricing.business.name">Business</h3>
                     </div>
-                    <p class="text-sm text-slate-500">Para supermercados y grandes tiendas.</p>
+                    <p class="text-sm text-slate-500" data-i18n="pricing.business.desc">Para supermercados y grandes tiendas.</p>
                     <div class="mt-6 flex items-baseline gap-1">
                         <span class="text-4xl font-display text-[#1b1f3b]">u$s 199</span>
-                        <span class="text-sm text-slate-500">/mes</span>
+                        <span class="text-sm text-slate-500" data-i18n="pricing.mo">/mes</span>
                     </div>
                     <ul class="mt-8 space-y-4 text-sm text-slate-600">
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Destinos ilimitados</li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Hard Reset Logic Pro</li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Buscador de pasillos inteligente</li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Analíticas de tráfico real</li>
+                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.business.f1">Destinos ilimitados</span></li>
+                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.business.f2">Hard Reset Logic Pro</span></li>
                     </ul>
-                    <a href="#contact" class="mt-8 block rounded-xl bg-blue-600 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors">Contratar Business</a>
+                    <a href="#contact" class="mt-8 block rounded-xl bg-blue-600 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors" data-i18n="pricing.cta">Contratar Business</a>
                 </div>
 
                 <div class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-md">
                     <div class="inline-block self-start px-4 py-1.5 rounded-lg bg-slate-200/50 border border-slate-300 mb-4">
-                        <h3 class="font-display text-xl text-slate-700">Enterprise</h3>
+                        <h3 class="font-display text-xl text-slate-700" data-i18n="pricing.enterprise.name">Enterprise</h3>
                     </div>
-                    <p class="text-sm text-slate-500">Superficies de más de 10.000 m².</p>
+                    <p class="text-sm text-slate-500" data-i18n="pricing.enterprise.desc">Superficies de más de 10.000 m².</p>
                     <div class="mt-6 flex items-baseline gap-1">
-                        <span class="text-4xl font-display text-[#1b1f3b]">A convenir</span>
+                        <span class="text-4xl font-display text-[#1b1f3b]" data-i18n="pricing.enterprise.price">A convenir</span>
                     </div>
                     <ul class="mt-8 space-y-4 text-sm text-slate-600">
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Soporte On-Site (Mapeo físico)</li>
-                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Integración SDK para App propia</li>
-                        <li class="flex items-center gap-3 text-slate-400"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Navegación Multi-planta avanzada</li>
+                        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="pricing.enterprise.f1">Soporte On-Site</span></li>
                     </ul>
-                    <a href="#contact" class="mt-8 block rounded-xl border border-slate-900 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-900 hover:text-white transition-colors">Consultar precio</a>
+                    <a href="#contact" class="mt-8 block rounded-xl border border-slate-900 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-900 hover:text-white transition-colors" data-i18n="pricing.cta_enterprise">Consultar precio</a>
                 </div>
             </div>
         </div>
@@ -333,26 +341,26 @@
     <section id="contact" class="relative bg-white py-24">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto max-w-2xl text-center">
-                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Contacto</p>
-                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl">¿Mapeamos tu espacio?</h2>
-                <p class="mt-4 text-base leading-relaxed text-slate-500">Agendá una demo para conocer nuestra tecnología de navegación y posicionamiento indoor.</p>
+                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600" data-i18n="contact.badge">Contacto</p>
+                <h2 class="text-3xl font-display tracking-tight text-[#1b1f3b] sm:text-4xl lg:text-5xl" data-i18n="contact.title">¿Mapeamos tu espacio?</h2>
+                <p class="mt-4 text-base leading-relaxed text-slate-500" data-i18n="contact.subtitle">Agendá una demo para conocer nuestra tecnología.</p>
             </div>
 
             <div class="mx-auto mt-12 max-w-lg">
                 <form id="contact-form" action="https://formspree.io/f/mzdaapkl" method="POST" class="flex flex-col gap-5 rounded-2xl border border-slate-200/60 bg-[#fcfcfd] p-8 shadow-sm">
                     <div class="flex flex-col gap-1.5">
-                        <label for="name" class="text-sm font-medium text-[#1b1f3b]">Nombre</label>
-                        <input id="name" name="nombre" type="text" required class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+                        <label for="name" class="text-sm font-medium text-[#1b1f3b]" data-i18n="contact.form.name_label">Nombre</label>
+                        <input id="name" name="nombre" type="text" required data-i18n="contact.form.name_placeholder" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
                     </div>
                     <div class="flex flex-col gap-1.5">
                         <label for="email" class="text-sm font-medium text-[#1b1f3b]">Email</label>
-                        <input id="email" name="email" type="email" required class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+                        <input id="email" name="email" type="email" required placeholder="tu@email.com" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
                     </div>
                     <div class="flex flex-col gap-1.5">
-                        <label for="message" class="text-sm font-medium text-[#1b1f3b]">Mensaje</label>
-                        <textarea id="message" name="mensaje" rows="4" required class="resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
+                        <label for="message" class="text-sm font-medium text-[#1b1f3b]" data-i18n="contact.form.msg_label">Mensaje</label>
+                        <textarea id="message" name="mensaje" rows="4" required data-i18n="contact.form.msg_placeholder" class="resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
                     </div>
-                    <button id="submit-button" type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 active:scale-[0.98]">
+                    <button id="submit-button" type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 active:scale-[0.98]" data-i18n="contact.form.btn">
                         Enviar Solicitud
                     </button>
                 </form>
@@ -368,37 +376,94 @@
                         <img src="img/indoorps-logo.png" alt="IndoorPS Logo" class="h-9 w-auto object-contain">
                         <span class="text-xl font-display tracking-wide text-[#c8cad6]">IndoorPS</span>
                     </div>
-                    <p class="text-center text-sm text-[#c8cad6]/60 md:text-left">Donde el GPS no llega.</p>
+                    <p class="text-center text-sm text-[#c8cad6]/60 md:text-left" data-i18n="footer.tagline">Donde el GPS no llega.</p>
                 </div>
                 <div class="flex gap-8">
-                    <a href="#features" class="text-sm transition-colors hover:text-white">Tecnología</a>
-                    <a href="#pricing" class="text-sm transition-colors hover:text-white">Precios</a>
-                    <a href="#contact" class="text-sm transition-colors hover:text-white">Contacto</a>
+                    <a href="#features" class="text-sm transition-colors hover:text-white" data-i18n="nav.tech">Tecnología</a>
+                    <a href="#pricing" class="text-sm transition-colors hover:text-white" data-i18n="nav.pricing">Precios</a>
+                    <a href="#contact" class="text-sm transition-colors hover:text-white" data-i18n="nav.contact">Contacto</a>
                 </div>
             </div>
             <div class="mt-8 text-center text-xs text-[#c8cad6]/40">
-                © 2026 IndoorPS Technologies. Todos los derechos reservados.
+                © 2026 IndoorPS Technologies. <span data-i18n="footer.rights">Todos los derechos reservados.</span>
             </div>
         </div>
     </footer>
 
     <script>
+        let translations = {};
+
+        async function loadLanguage(lang) {
+    try {
+        // 1. Buscamos el archivo en la carpeta correcta
+        const response = await fetch(`./locales/${lang}.json`);
+        
+        // 2. Corregido: response.status en lugar de status solo
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        translations = await response.json();
+        
+        // 3. Aplicamos los cambios
+        applyTranslations();
+        
+        // 4. Guardamos preferencia
+        localStorage.setItem('preferredLang', lang);
+        document.documentElement.lang = lang;
+        
+        console.log("Idioma cargado correctamente:", lang);
+    } catch (error) {
+        console.error("Error loading language file:", error);
+    }
+}
+
+// 5. IMPORTANTE: Crea este "puente" por si los botones llaman a changeLanguage
+function changeLanguage(lang) {
+    loadLanguage(lang);
+}
+
+        function applyTranslations() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = key.split('.').reduce((obj, i) => (obj ? obj[i] : null), translations);
+                
+                if (translation) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translation;
+                    } else {
+                        el.innerHTML = translation;
+                    }
+                }
+            });
+        }
+
+        // Función global para que funcionen los botones
+        function changeLanguage(lang) {
+            loadLanguage(lang);
+        }
+
+        // Escuchar clics en los botones por ID (Escritorio)
+        document.getElementById('btn-es')?.addEventListener('click', () => changeLanguage('es'));
+        document.getElementById('btn-en')?.addEventListener('click', () => changeLanguage('en'));
+
+        // Inicialización
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('en') ? 'en' : 'es');
+            loadLanguage(savedLang);
+        });
+
+        // Scripts de Interfaz
         const mobileToggle = document.getElementById('mobile-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        mobileToggle?.addEventListener('click', () => {
+            mobileMenu?.classList.toggle('hidden');
         });
 
         function closeMobile() {
-            mobileMenu.classList.add('hidden');
+            mobileMenu?.classList.add('hidden');
         }
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -412,6 +477,5 @@
             observer.observe(el);
         });
     </script>
-
 </body>
 </html>

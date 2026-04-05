@@ -1,0 +1,100 @@
+{
+    "head": {
+      "title": "IndoorPS - Where GPS doesn't reach",
+      "description": "Precision indoor navigation and positioning technology for smart buildings, malls and airports."
+    },
+    "nav": {
+      "tech": "Technology",
+      "implementation": "Implementation",
+      "demos": "Demos",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "request_demo": "Request Demo"
+    },
+    "hero": {
+      "badge": "Digital Evolution: Navigation without limits.",
+      "title": "We reach where GPS cannot.",
+      "subtitle": "Wayfinding v2.0 - Improve experience, optimize routes and make decisions with real data inside your spaces.",
+      "cta_primary": "Start Tour",
+      "cta_secondary": "View Technology",
+      "features": {
+        "no_hw": "No Hardware",
+        "no_sensors": "No Sensors",
+        "no_infra": "No infrastructure changes"
+      }
+    },
+    "features": {
+      "main_title": "The next evolution of indoor positioning intelligence.",
+      "card1": {
+        "title": "Hard Reset Logic",
+        "desc": "Optimized mapping through deep coordinate cleaning to avoid signal jumps indoors."
+      },
+      "card2": {
+        "title": "Smart Indoor Routes",
+        "desc": "We connect every point of your spaces with precision and in real time. Wayfinding evolution!."
+      },
+      "card3": {
+        "title": "GPS-Like Experience",
+        "desc": "The same simplicity of GPS, now inside any enclosed space."
+      }
+    },
+    "process": {
+      "badge": "Implementation",
+      "title": "From physical map to smart navigation in days.",
+      "subtitle": "Total simplicity: we handle the technical complexity.",
+      "step1": {
+        "title": "Floor Plan Delivery",
+        "desc": "Share your space map (PDF, CAD or image) and key reference points."
+      },
+      "step2": {
+        "title": "Digitalization",
+        "desc": "Our team processes the geometry and configures the smart navigation network."
+      },
+      "step3": {
+        "title": "Deployment",
+        "desc": "In a few days, receive your system ready to go. No complex installs, just a QR code."
+      }
+    },
+    "demos": {
+      "badge": "Real Experience",
+      "title": "Interactive Simulator",
+      "subtitle": "Explore high-precision navigation directly from here."
+    },
+    "pricing": {
+      "badge": "Plans",
+      "title": "Choose your precision level",
+      "mo": "/mo",
+      "cta": "Get Started",
+      "starter": {
+        "name": "Starter",
+        "desc": "For offices and retail stores.",
+        "f1": "Up to 15 destination points",
+        "f2": "Node Logic included"
+      },
+      "business": {
+        "name": "Business",
+        "desc": "For supermarkets and large stores.",
+        "f1": "Unlimited destinations",
+        "f2": "Hard Reset Logic Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "Surfaces over 10,000 m².",
+        "price": "Contact us",
+        "f1": "On-Site Support"
+      },
+      "cta_enterprise": "Inquire pricing"
+    },
+    "contact": {
+      "badge": "Contact",
+      "title": "Shall we map your space?",
+      "subtitle": "Schedule a demo to learn about our technology.",
+      "form": {
+        "name_label": "Name",
+        "name_placeholder": "Your name",
+        "msg_label": "Message",
+        "msg_placeholder": "Tell us about your project...",
+        "btn": "Send Request"
+      }
+    }
+  }

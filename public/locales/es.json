@@ -1,0 +1,100 @@
+{
+    "head": {
+      "title": "IndoorPS - Donde el GPS no llega",
+      "description": "Tecnología de navegación y posicionamiento en interiores de precisión para edificios inteligentes, centros comerciales y aeropuertos."
+    },
+    "nav": {
+      "tech": "Tecnología",
+      "implementation": "Implementación",
+      "demos": "Demos",
+      "pricing": "Precios",
+      "contact": "Contacto",
+      "request_demo": "Solicitar Demo"
+    },
+    "hero": {
+      "badge": "Evolución Digital: Navegación sin límites.",
+      "title": "Llegamos donde el GPS no llega.",
+      "subtitle": "Wayfinding v2.0 - Mejora la experiencia, optimiza recorridos y toma decisiones con datos reales dentro de tus espacios.",
+      "cta_primary": "Start Tour",
+      "cta_secondary": "Ver Tecnología",
+      "features": {
+        "no_hw": "Sin Hardware",
+        "no_sensors": "Sin Sensores",
+        "no_infra": "Sin tocar tu infraestructura"
+      }
+    },
+    "features": {
+      "main_title": "La próxima evolución de la inteligencia de posicionamiento en interiores.",
+      "card1": {
+        "title": "Hard Reset Logic",
+        "desc": "Mapeo optimizado mediante limpieza profunda de coordenadas para evitar saltos de señal en interiores."
+      },
+      "card2": {
+        "title": "Rutas Inteligentes Indoor",
+        "desc": "Conectamos cada punto de tus espacios con precisión y en tiempo real. ¡La evolución del Wayfinding!."
+      },
+      "card3": {
+        "title": "GPS-Like Experience",
+        "desc": "La misma simplicidad del GPS, ahora dentro de cualquier espacio cerrado."
+      }
+    },
+    "process": {
+      "badge": "Implementación",
+      "title": "De tu mapa físico a la navegación inteligente en días.",
+      "subtitle": "Simplicidad total: nosotros nos encargamos de la complejidad técnica.",
+      "step1": {
+        "title": "Entrega de Planos",
+        "desc": "Nos compartís el mapa de tu espacio (PDF, CAD o imagen) y los puntos de referencia clave."
+      },
+      "step2": {
+        "title": "Digitalización",
+        "desc": "Nuestro equipo procesa la geometría y configura la red de navegación inteligente."
+      },
+      "step3": {
+        "title": "Despliegue",
+        "desc": "En pocos días, recibís tu sistema listo para funcionar. Sin instalaciones complejas, solo un QR."
+      }
+    },
+    "demos": {
+      "badge": "Experiencia Real",
+      "title": "Simulador Interactivo",
+      "subtitle": "Explorá la navegación de alta precisión directamente desde aquí."
+    },
+    "pricing": {
+      "badge": "Planes",
+      "title": "Elegí tu nivel de precisión",
+      "mo": "/mes",
+      "cta": "Contratar",
+      "starter": {
+        "name": "Starter",
+        "desc": "Para oficinas y locales comerciales.",
+        "f1": "Hasta 15 puntos de destino",
+        "f2": "Lógica de Nodos funcionando"
+      },
+      "business": {
+        "name": "Business",
+        "desc": "Para supermercados y grandes tiendas.",
+        "f1": "Destinos ilimitados",
+        "f2": "Hard Reset Logic Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "Superficies de más de 10.000 m².",
+        "price": "A convenir",
+        "f1": "Soporte On-Site"
+      },
+      "cta_enterprise": "Consultar precio"
+    },
+    "contact": {
+      "badge": "Contacto",
+      "title": "¿Mapeamos tu espacio?",
+      "subtitle": "Agendá una demo para conocer nuestra tecnología.",
+      "form": {
+        "name_label": "Nombre",
+        "name_placeholder": "Tu nombre",
+        "msg_label": "Mensaje",
+        "msg_placeholder": "Cuéntanos sobre tu proyecto...",
+        "btn": "Enviar Solicitud"
+      }
+    }
+  }
