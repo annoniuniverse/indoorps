@@ -37,7 +37,7 @@ document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
 async function aplicarTraduccion(lang) {
     try {
         // En Vite, la carpeta public es la raíz, usamos /locales/
-        const response = await fetch(`/locales/${lang}.json`);
+        const response = await fetch(`./locales/${lang}.json`);
         if (!response.ok) throw new Error(`No se pudo cargar el archivo: ${response.status}`);
         
         const textos = await response.json();
